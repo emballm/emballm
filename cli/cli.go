@@ -50,10 +50,11 @@ func Command(release string) {
 	} else {
 		fileScan := FileScan{flags.File, Status.InProgress}
 		fileScans = append(fileScans, &fileScan)
-		fmt.Println(fmt.Sprintf("Scanning %s\n", flags.File))
+		fmt.Println(fmt.Sprintf("Scanning %s", flags.File))
 	}
 
 	scanning := true
+
 	var result *string
 	switch flags.Service {
 	case services.Supported.Ollama:
