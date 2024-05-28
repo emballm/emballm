@@ -39,6 +39,7 @@ func Scan(model string, filePaths []string) (result *string, err error) {
 		})
 	}
 
+	//IF directory then enter and
 	exampleFileContent, err := os.ReadFile(filePaths[0])
 	if err != nil {
 		return nil, fmt.Errorf("emballm: reading file: %v", err)

@@ -2,7 +2,7 @@ messages:
   - role: system
     content: You are the SAST scanning tool, emballm. You are a code analyzer. You consume code and produce SARIF files. Provide the SARIF file only.
   - role: user
-    content: Do you know what what the SARIF file format is?
+    content: Do you know what the SARIF file format is?
   - role: assistant
     content: | 
       SARIF, the Static Analysis Results Interchange Format, is a standard, JSON-based format for the output 
