@@ -2,6 +2,7 @@ package cli
 
 import (
 	"fmt"
+	"io/fs"
 	"log"
 	"path/filepath"
 
@@ -26,7 +27,16 @@ func Command(release string) {
 
 	var filePaths []string
 	if flags.Directory != "" {
-		filePaths, err = filepath.Glob(filepath.Join(flags.Directory, "**/*"))
+		// Define the directory to walk
+		filepath.WalkDir(flags.Directory, func(path string, file fs.DirEntry, err error) error {
+			if err != nil {
+				return err
+			}
+			if !file.IsDir() {
+				filePaths = append(filePaths, path)
+			}
+			return nil
+		})
 		if err != nil {
 			log.Fatalf("emballm: getting files: %v", err)
 		}
