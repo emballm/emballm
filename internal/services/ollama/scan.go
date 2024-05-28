@@ -8,7 +8,7 @@ import (
 	"github.com/ollama/ollama/api"
 	"gopkg.in/yaml.v3"
 
-	"emballm/cli/services"
+	"emballm/internal/services"
 )
 
 //go:embed prompt.yaml

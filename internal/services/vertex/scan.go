@@ -10,7 +10,7 @@ import (
 	"cloud.google.com/go/vertexai/genai"
 	"gopkg.in/yaml.v3"
 
-	"emballm/cli/services"
+	"emballm/internal/services"
 )
 
 //go:embed prompt.yaml

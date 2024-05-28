@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"log"
 
-	"emballm/cli/services"
-	"emballm/cli/services/ollama"
-	"emballm/cli/services/vertex"
+	"emballm/internal/services"
+	"emballm/internal/services/ollama"
+	"emballm/internal/services/vertex"
 )
 
 func Command(release string) {
