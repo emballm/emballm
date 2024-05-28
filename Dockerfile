@@ -12,11 +12,13 @@ LABEL authors="andershokinson,andrewmollohan,aubreyklaft,gabrielaboy,williamwiss
 
 #copy executable and run scripts
 COPY --from=base /app/emballm /bin/emballm
-COPY --from=base --chmod=755 /app/scripts/startOllama.sh /bin/startOllama.sh
+COPY --from=base --chmod=755 /app/scripts/*.sh /bin/
 
 # Install curl and ollama
 RUN apt update && apt upgrade && apt install -y curl
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
-# Run ollama at start time
-CMD ["/bin/startOllama.sh"]
+ENV EMBALLM_EXECUTABLE=/bin/emballm
+
+ENTRYPOINT ["/bin/startOllama.sh"]
+CMD [ "-directory", "/scratch/harness" ]

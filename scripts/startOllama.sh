@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# check and make sure ollama is installed and running
 which ollama
 ollama --version
 ollama serve &
@@ -6,4 +8,5 @@ ollama serve &
 sleep 30
 ollama pull gemma:2b
 
-/bin/emballm --file test
+# run emballm
+. /bin/startEmballm.sh "$@"

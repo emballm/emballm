@@ -4,9 +4,6 @@ tasks:
     cmds:
       - task clean
       - task build-darwin
-  clean:
-    cmds:
-      - rm -rf build/dist
   build-darwin:
     vars:
       platform: darwin
@@ -16,6 +13,12 @@ tasks:
       - chmod +x build/{{.platform}}/emballm
       - cd build/{{.platform}} && zip -r ../dist/{{.platform}}.zip . && cd ../..
       - rm -r build/{{.platform}}
+  clean:
+    cmds:
+      - rm -rf build/dist
+  docker-build:
+    cmds:
+      - docker build -t emballm-runner:latest .
   make-scratch:
     cmds:
     - mkdir -p scratch

@@ -2,7 +2,7 @@
   <configuration default="false" name="go build emballm" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
     <module name="emballm" />
     <working_directory value="$PROJECT_DIR$" />
-    <parameters value="-directory scratch/harness" />
+    <parameters value="-file scratch/harness/bad/db.py" />
     <kind value="PACKAGE" />
     <package value="emballm" />
     <directory value="$PROJECT_DIR$" />
