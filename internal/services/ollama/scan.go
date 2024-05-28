@@ -4,6 +4,7 @@ import (
 	"context"
 	"embed"
 	"fmt"
+	"os"
 
 	"github.com/ollama/ollama/api"
 	"gopkg.in/yaml.v3"
@@ -31,12 +32,22 @@ func Scan(model string, filePaths []string) (result *string, err error) {
 	}
 
 	var messages []api.Message
-	for _, message := range prompt.Messages {
+	for _, message := range prompt.Messages[:len(prompt.Messages)-1] {
 		messages = append(messages, api.Message{
 			Role:    message.Role,
 			Content: message.Content,
 		})
 	}
+
+	exampleFileContent, err := os.ReadFile(filePaths[0])
+	if err != nil {
+		return nil, fmt.Errorf("emballm: reading file: %v", err)
+	}
+	codeMessage := prompt.Messages[len(prompt.Messages)-1]
+	messages = append(messages, api.Message{
+		Role:    codeMessage.Role,
+		Content: fmt.Sprintf(codeMessage.Content, string(exampleFileContent)),
+	})
 
 	ctx := context.Background()
 	req := &api.ChatRequest{

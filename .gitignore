@@ -26,5 +26,4 @@ go.work
 
 # emballm
 build/dist/*
-
 scratch/*
