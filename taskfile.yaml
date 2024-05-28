@@ -16,3 +16,7 @@ tasks:
       - chmod +x build/{{.platform}}/emballm
       - cd build/{{.platform}} && zip -r ../dist/{{.platform}}.zip . && cd ../..
       - rm -r build/{{.platform}}
+  make-scratch:
+    cmds:
+    - mkdir -p scratch
+    - cd scratch && git clone https://github.com/fportantier/vulpy.git ./harness
