@@ -3,7 +3,7 @@ package ollama
 import (
 	"context"
 	"embed"
-	"log"
+	"fmt"
 
 	"github.com/ollama/ollama/api"
 	"gopkg.in/yaml.v3"
@@ -18,16 +18,16 @@ func Scan(model string, filePaths []string) (result *string, err error) {
 	var prompt services.Prompt
 	data, err := content.ReadFile("prompt.yaml")
 	if err != nil {
-		log.Fatalf("emballm: reading prompt: %v", err)
+		return nil, fmt.Errorf("emballm: reading prompt: %v", err)
 	}
 	err = yaml.Unmarshal(data, &prompt)
 	if err != nil {
-		log.Fatalf("emballm: unmarshalling prompt: %v", err)
+		return nil, fmt.Errorf("emballm: unmarshalling prompt: %v", err)
 	}
 
 	client, err := api.ClientFromEnvironment()
 	if err != nil {
-		log.Fatal(err)
+		return nil, fmt.Errorf("emballm: creating ollama client: %v", err)
 	}
 
 	var messages []api.Message
@@ -57,8 +57,7 @@ func Scan(model string, filePaths []string) (result *string, err error) {
 
 	err = client.Chat(ctx, req, respond)
 	if err != nil {
-		log.Fatal(err)
-		return
+		return nil, fmt.Errorf("emballm: chat with ollama: %v", err)
 	}
 
 	return

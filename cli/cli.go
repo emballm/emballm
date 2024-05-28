@@ -19,9 +19,10 @@ func Command(release string) {
 		log.Fatalf("emballm: checking requirements: %v", err)
 	}
 
-	flags := ParseFlags()
-
-	fmt.Println(fmt.Sprintf("Scanning %s\n", flags.Directory))
+	flags, err := ParseFlags()
+	if err != nil {
+		log.Fatalf("emballm: parsing flags: %v", err)
+	}
 
 	var filePaths []string
 	if flags.Directory != "" {
@@ -29,8 +30,10 @@ func Command(release string) {
 		if err != nil {
 			log.Fatalf("emballm: getting files: %v", err)
 		}
+		fmt.Println(fmt.Sprintf("Scanning %s\n", flags.Directory))
 	} else {
 		filePaths = []string{flags.File}
+		fmt.Println(fmt.Sprintf("Scanning %s\n", flags.File))
 	}
 
 	var result *string

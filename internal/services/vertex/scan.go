@@ -30,7 +30,7 @@ func Scan(model string, filePaths []string) (result *string, err error) {
 	ctx := context.Background()
 	client, err := genai.NewClient(ctx, "projectID", "location")
 	if err != nil {
-		return nil, fmt.Errorf("error creating client: %w", err)
+		return nil, fmt.Errorf("%v", err)
 	}
 	defer func(client *genai.Client) {
 		err := client.Close()
@@ -57,11 +57,11 @@ func Scan(model string, filePaths []string) (result *string, err error) {
 		genai.Text(prompt.Messages[len(prompt.Messages)-1].Content),
 	)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("%v", err)
 	}
 	rb, err := json.MarshalIndent(r, "", "  ")
 	if err != nil {
-		return nil, fmt.Errorf("json.MarshalIndent: %w", err)
+		return nil, fmt.Errorf("%v", err)
 	}
 	resp := string(rb)
 	result = &resp

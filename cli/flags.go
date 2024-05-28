@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func ParseFlags() (flags Flags) {
+func ParseFlags() (flags Flags, err error) {
 	flag.Usage = func() {
 		fmt.Println("Usage: emballm [flags]")
 		flag.PrintDefaults()
@@ -22,8 +22,8 @@ func ParseFlags() (flags Flags) {
 	flags.File = *fileFlag
 
 	if flags.Directory == flags.File {
-		fmt.Println("emballm: directory and file flags are the same")
 		flag.Usage()
+		return Flags{}, fmt.Errorf("directory and file flags are the same")
 	}
 
 	flags.Service = *serviceFlag
