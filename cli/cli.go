@@ -39,10 +39,15 @@ func Command(release string) {
 	var result *string
 	switch flags.Service {
 	case services.Supported.Ollama:
-		result, err = ollama.Scan(flags.Model, filePaths)
-		if err != nil {
-			log.Fatalf("emballm: scanning: %v", err)
+		var scan string
+		for _, file := range filePaths {
+			fileResult, err := ollama.Scan(flags.Model, file)
+			if err != nil {
+				log.Fatalf("emballm: scanning: %v", err)
+			}
+			scan += *fileResult
 		}
+		result = &scan
 	case services.Supported.Vertex:
 		result, err = vertex.Scan(flags.Model, filePaths)
 		if err != nil {

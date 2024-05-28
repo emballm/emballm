@@ -15,7 +15,7 @@ import (
 //go:embed prompt.yaml
 var content embed.FS
 
-func Scan(model string, filePaths []string) (result *string, err error) {
+func Scan(model string, filePath string) (result *string, err error) {
 	var prompt services.Prompt
 	data, err := content.ReadFile("prompt.yaml")
 	if err != nil {
@@ -39,15 +39,14 @@ func Scan(model string, filePaths []string) (result *string, err error) {
 		})
 	}
 
-	//IF directory then enter and
-	exampleFileContent, err := os.ReadFile(filePaths[0])
+	fileContent, err := os.ReadFile(filePath)
 	if err != nil {
 		return nil, fmt.Errorf("emballm: reading file: %v", err)
 	}
 	codeMessage := prompt.Messages[len(prompt.Messages)-1]
 	messages = append(messages, api.Message{
 		Role:    codeMessage.Role,
-		Content: fmt.Sprintf(codeMessage.Content, string(exampleFileContent)),
+		Content: fmt.Sprintf(codeMessage.Content, string(fileContent)),
 	})
 
 	ctx := context.Background()
