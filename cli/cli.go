@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"strings"
+	"regexp"
 	"sync"
 	"time"
 
@@ -29,6 +29,11 @@ func Command(release string) {
 		log.Fatalf("emballm: parsing flags: %v", err)
 	}
 
+	excludePattern := []string{
+		"^((.*?/){0,}(_cvs|.svn|.hg|.git|.bzr|bin|obj|backup|node_modules))",
+		"(?i)\\.(?:.*?)(DS_Store|ipr|iws|bak|tmp|aac|aif|iff|m3u|mid|mp3|mpa|ra|wav|wma|3g2|3gp|asf|asx|avi|flv|mov|mp4|mpg|rm|swf|vob|wmv|bmp|gif|jpg|png|psd|tif|jar|zip|rar|exe|dll|pdb|7z|gz|tar\\.gz|tar|ahtm|ahtml|fhtml|hdm|hdml|hsql|ht|hta|htc|htd|htmls|ihtml|mht|mhtm|mhtml|ssi|stm|stml|ttml|txn|class|iml)",
+	}
+
 	var fileScans []*FileScan
 	if flags.Directory != "" {
 		// Define the directory to walk
@@ -36,9 +41,18 @@ func Command(release string) {
 			if err != nil {
 				return err
 			}
-			if file.IsDir() || strings.Contains(filePath, flags.Exclude) {
+
+			if file.IsDir() {
 				return nil
 			}
+
+			for _, pattern := range excludePattern {
+				match, _ := regexp.MatchString(pattern, filePath)
+				if match {
+					return nil
+				}
+			}
+
 			fileScan := FileScan{filePath, Status.InProgress}
 			fileScans = append(fileScans, &fileScan)
 			return nil
