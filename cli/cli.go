@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"sync"
 
 	"emballm/internal/services"
 	"emballm/internal/services/ollama"
@@ -51,14 +52,23 @@ func Command(release string) {
 	switch flags.Service {
 	case services.Supported.Ollama:
 		var scan string
+		var wg sync.WaitGroup
+
 		for _, file := range filePaths {
-			fmt.Println(fmt.Sprintf("Scanning %s", file))
-			fileResult, err := ollama.Scan(flags.Model, file)
-			if err != nil {
-				log.Fatalf("emballm: scanning: %v", err)
-			}
-			scan += *fileResult
+			wg.Add(1)
+			go func(file string) {
+				defer wg.Done()
+				fmt.Println(fmt.Sprintf("Scanning %s started", file))
+				fileResult, err := ollama.Scan(flags.Model, file)
+				if err != nil {
+					log.Fatalf("emballm: scanning: %v", err)
+				}
+				scan += *fileResult
+				fmt.Println(fmt.Sprintf("Scanning %s done", file))
+			}(file)
 		}
+		// Wait for all goroutines to finish
+		wg.Wait()
 		result = &scan
 	case services.Supported.Vertex:
 		result, err = vertex.Scan(flags.Model, filePaths)
