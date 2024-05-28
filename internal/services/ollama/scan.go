@@ -19,16 +19,16 @@ func Scan(model string, filePath string) (result *string, err error) {
 	var prompt services.Prompt
 	data, err := content.ReadFile("prompt.yaml")
 	if err != nil {
-		return nil, fmt.Errorf("emballm: reading prompt: %v", err)
+		return nil, fmt.Errorf("ollama scan: reading prompt: %v", err)
 	}
 	err = yaml.Unmarshal(data, &prompt)
 	if err != nil {
-		return nil, fmt.Errorf("emballm: unmarshalling prompt: %v", err)
+		return nil, fmt.Errorf("ollama scan: unmarshalling prompt: %v", err)
 	}
 
 	client, err := api.ClientFromEnvironment()
 	if err != nil {
-		return nil, fmt.Errorf("emballm: creating ollama client: %v", err)
+		return nil, fmt.Errorf("ollama scan: creating ollama client: %v", err)
 	}
 
 	var messages []api.Message
@@ -41,7 +41,7 @@ func Scan(model string, filePath string) (result *string, err error) {
 
 	fileContent, err := os.ReadFile(filePath)
 	if err != nil {
-		return nil, fmt.Errorf("emballm: reading file: %v", err)
+		return nil, fmt.Errorf("ollama scan: reading file: %v", err)
 	}
 	codeMessage := prompt.Messages[len(prompt.Messages)-1]
 	messages = append(messages, api.Message{
@@ -68,7 +68,7 @@ func Scan(model string, filePath string) (result *string, err error) {
 
 	err = client.Chat(ctx, req, respond)
 	if err != nil {
-		return nil, fmt.Errorf("emballm: chat with ollama: %v", err)
+		return nil, fmt.Errorf("ollama scan: chatting: %v", err)
 	}
 
 	return

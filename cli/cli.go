@@ -52,12 +52,12 @@ func Command(release string) {
 	switch flags.Service {
 	case services.Supported.Ollama:
 		var scan string
-		var wg sync.WaitGroup
+		var waitGroup sync.WaitGroup
 
 		for _, file := range filePaths {
-			wg.Add(1)
+			waitGroup.Add(1)
 			go func(file string) {
-				defer wg.Done()
+				defer waitGroup.Done()
 				fmt.Println(fmt.Sprintf("Scanning %s started", file))
 				fileResult, err := ollama.Scan(flags.Model, file)
 				if err != nil {
@@ -67,14 +67,29 @@ func Command(release string) {
 				fmt.Println(fmt.Sprintf("Scanning %s done", file))
 			}(file)
 		}
-		// Wait for all goroutines to finish
-		wg.Wait()
+
+		waitGroup.Wait()
 		result = &scan
 	case services.Supported.Vertex:
-		result, err = vertex.Scan(flags.Model, filePaths)
-		if err != nil {
-			log.Fatalf("emballm: scanning: %v", err)
+		var scan string
+		var waitGroup sync.WaitGroup
+
+		for _, file := range filePaths {
+			waitGroup.Add(1)
+			go func(file string) {
+				defer waitGroup.Done()
+				fmt.Println(fmt.Sprintf("Scanning %s started", file))
+				fileResult, err := vertex.Scan(flags.Model, file)
+				if err != nil {
+					log.Fatalf("emballm: scanning: %v", err)
+				}
+				scan += *fileResult
+				fmt.Println(fmt.Sprintf("Scanning %s done", file))
+			}(file)
 		}
+
+		waitGroup.Wait()
+		result = &scan
 	default:
 		log.Fatalf("emballm: unknown service: %s", flags.Service)
 	}

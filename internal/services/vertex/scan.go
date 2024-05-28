@@ -6,8 +6,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 
-	"cloud.google.com/go/vertexai/genai"
+	"github.com/google/generative-ai-go/genai"
+	"google.golang.org/api/option"
 	"gopkg.in/yaml.v3"
 
 	"emballm/internal/services"
@@ -16,19 +18,19 @@ import (
 //go:embed prompt.yaml
 var content embed.FS
 
-func Scan(model string, filePaths []string) (result *string, err error) {
+func Scan(model string, filePath string) (result *string, err error) {
 	var prompt services.Prompt
 	data, err := content.ReadFile("prompt.yaml")
 	if err != nil {
-		log.Fatalf("emballm: reading prompt: %v", err)
+		log.Fatalf("vertex scan: reading prompt: %v", err)
 	}
 	err = yaml.Unmarshal(data, &prompt)
 	if err != nil {
-		log.Fatalf("emballm: unmarshalling prompt: %v", err)
+		log.Fatalf("vertex scan: unmarshalling prompt: %v", err)
 	}
 
 	ctx := context.Background()
-	client, err := genai.NewClient(ctx, "projectID", "location")
+	client, err := genai.NewClient(ctx, option.WithAPIKey(os.Getenv("VERTEX_API_KEY")))
 	if err != nil {
 		return nil, fmt.Errorf("%v", err)
 	}
@@ -52,10 +54,14 @@ func Scan(model string, filePaths []string) (result *string, err error) {
 	}
 	chat.History = append(chat.History, messages...)
 
+	fileContent, err := os.ReadFile(filePath)
+	if err != nil {
+		return nil, fmt.Errorf("vertex scan: reading file: %v", err)
+	}
+	codeMessage := prompt.Messages[len(prompt.Messages)-1]
 	r, err := chat.SendMessage(
 		ctx,
-		genai.Text(prompt.Messages[len(prompt.Messages)-1].Content),
-	)
+		genai.Text(fmt.Sprintf(codeMessage.Content, string(fileContent))))
 	if err != nil {
 		return nil, fmt.Errorf("%v", err)
 	}
