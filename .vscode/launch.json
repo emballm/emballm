@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "main.go",
-            "args": ["--directory"]
+            "args": ["-directory", "scratch/harness"]
         }
     ]
 }
