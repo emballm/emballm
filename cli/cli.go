@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/fs"
 	"log"
+	"os"
 	"path/filepath"
 
 	"emballm/internal/services"
@@ -28,7 +29,7 @@ func Command(release string) {
 	var filePaths []string
 	if flags.Directory != "" {
 		// Define the directory to walk
-		filepath.WalkDir(flags.Directory, func(path string, file fs.DirEntry, err error) error {
+		err = filepath.WalkDir(flags.Directory, func(path string, file fs.DirEntry, err error) error {
 			if err != nil {
 				return err
 			}
@@ -51,6 +52,7 @@ func Command(release string) {
 	case services.Supported.Ollama:
 		var scan string
 		for _, file := range filePaths {
+			fmt.Println(fmt.Sprintf("Scanning %s", file))
 			fileResult, err := ollama.Scan(flags.Model, file)
 			if err != nil {
 				log.Fatalf("emballm: scanning: %v", err)
@@ -67,5 +69,8 @@ func Command(release string) {
 		log.Fatalf("emballm: unknown service: %s", flags.Service)
 	}
 
-	fmt.Println(*result)
+	err = os.WriteFile(flags.Output, []byte(*result), 0644)
+	if err != nil {
+		log.Fatalf("emballm: writing output: %v", err)
+	}
 }
