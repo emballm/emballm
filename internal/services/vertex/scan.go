@@ -16,7 +16,7 @@ import (
 //go:embed prompt.yaml
 var content embed.FS
 
-func Scan(model string) (result *string, err error) {
+func Scan(model string, filePaths []string) (result *string, err error) {
 	var prompt services.Prompt
 	data, err := content.ReadFile("prompt.yaml")
 	if err != nil {

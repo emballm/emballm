@@ -6,7 +6,7 @@ tasks:
       - task build-darwin
   clean:
     cmds:
-      - rm -r build/dist
+      - rm -rf build/dist
   build-darwin:
     vars:
       platform: darwin
