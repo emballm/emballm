@@ -6,7 +6,9 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 	"sync"
+	"time"
 
 	"emballm/internal/services"
 	"emballm/internal/services/ollama"
@@ -27,16 +29,18 @@ func Command(release string) {
 		log.Fatalf("emballm: parsing flags: %v", err)
 	}
 
-	var filePaths []string
+	var fileScans []*FileScan
 	if flags.Directory != "" {
 		// Define the directory to walk
-		err = filepath.WalkDir(flags.Directory, func(path string, file fs.DirEntry, err error) error {
+		err = filepath.WalkDir(flags.Directory, func(filePath string, file fs.DirEntry, err error) error {
 			if err != nil {
 				return err
 			}
-			if !file.IsDir() {
-				filePaths = append(filePaths, path)
+			if file.IsDir() || strings.Contains(filePath, flags.Exclude) {
+				return nil
 			}
+			fileScan := FileScan{filePath, Status.InProgress}
+			fileScans = append(fileScans, &fileScan)
 			return nil
 		})
 		if err != nil {
@@ -44,48 +48,57 @@ func Command(release string) {
 		}
 		fmt.Println(fmt.Sprintf("Scanning %s\n", flags.Directory))
 	} else {
-		filePaths = []string{flags.File}
+		fileScan := FileScan{flags.File, Status.InProgress}
+		fileScans = append(fileScans, &fileScan)
 		fmt.Println(fmt.Sprintf("Scanning %s\n", flags.File))
 	}
 
+	scanning := true
 	var result *string
 	switch flags.Service {
 	case services.Supported.Ollama:
 		var scan string
 		var waitGroup sync.WaitGroup
 
-		for _, file := range filePaths {
+		for _, fileScan := range fileScans {
 			waitGroup.Add(1)
-			go func(file string) {
+			go func(fileScan *FileScan) {
 				defer waitGroup.Done()
-				fmt.Println(fmt.Sprintf("Scanning %s started", file))
-				fileResult, err := ollama.Scan(flags.Model, file)
+				fileResult, err := ollama.Scan(flags.Model, fileScan.Path)
 				if err != nil {
 					log.Fatalf("emballm: scanning: %v", err)
 				}
 				scan += *fileResult
-				fmt.Println(fmt.Sprintf("Scanning %s done", file))
-			}(file)
+				fileScan.Status = Status.Complete
+			}(fileScan)
 		}
 
+		go func() {
+			for scanning {
+				ScanStatus(fileScans, flags)
+				time.Sleep(1 * time.Second)
+			}
+		}()
+
 		waitGroup.Wait()
+		scanning = false
+		ScanStatus(fileScans, flags)
 		result = &scan
 	case services.Supported.Vertex:
 		var scan string
 		var waitGroup sync.WaitGroup
 
-		for _, file := range filePaths {
+		for _, fileScan := range fileScans {
 			waitGroup.Add(1)
-			go func(file string) {
+			go func(fileScan *FileScan) {
 				defer waitGroup.Done()
-				fmt.Println(fmt.Sprintf("Scanning %s started", file))
-				fileResult, err := vertex.Scan(flags.Model, file)
+				fileResult, err := vertex.Scan(flags.Model, fileScan.Path)
 				if err != nil {
 					log.Fatalf("emballm: scanning: %v", err)
 				}
 				scan += *fileResult
-				fmt.Println(fmt.Sprintf("Scanning %s done", file))
-			}(file)
+				fileScan.Status = Status.Complete
+			}(fileScan)
 		}
 
 		waitGroup.Wait()
