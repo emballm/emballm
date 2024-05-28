@@ -26,7 +26,7 @@ func Command(release string) {
 
 	var filePaths []string
 	if flags.Directory != "" {
-		filePaths, err = filepath.Glob(filepath.Join(flags.Directory, "*"))
+		filePaths, err = filepath.Glob(filepath.Join(flags.Directory, "**/*"))
 		if err != nil {
 			log.Fatalf("emballm: getting files: %v", err)
 		}
