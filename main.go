@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"flag"
 	"fmt"
 
 	"gopkg.in/yaml.v3"
@@ -31,5 +32,7 @@ func main() {
 	data, _ := content.ReadFile("release.yaml")
 	var release Release
 	_ = yaml.Unmarshal(data, &release)
+
+	flag.Parse()
 	cli.Command(release.String())
 }

@@ -1,0 +1,18 @@
+version: '3'
+tasks:
+  build-all:
+    cmds:
+      - task clean
+      - task build-darwin
+  clean:
+    cmds:
+      - rm -r build/dist
+  build-darwin:
+    vars:
+      platform: darwin
+    cmds:
+      - mkdir -p build/{{.platform}} build/dist
+      - GOARCH=amd64 GOOS={{.platform}} go build -o build/{{.platform}}/emballm main.go
+      - chmod +x build/{{.platform}}/emballm
+      - cd build/{{.platform}} && zip -r ../dist/{{.platform}}.zip . && cd ../..
+      - rm -r build/{{.platform}}
