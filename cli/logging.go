@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
-func Log() *slog.Logger {
+var Log = newLog()
+
+func newLog() *slog.Logger {
 	return slog.New(slog.NewTextHandler(os.Stderr, nil))
 }

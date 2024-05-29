@@ -27,3 +27,4 @@ go.work
 # emballm
 build/dist/*
 scratch/*
+exclude.yaml

@@ -3,111 +3,56 @@ package cli
 import (
 	"encoding/json"
 	"fmt"
-	"io/fs"
 	"os"
-	"path/filepath"
-	"regexp"
-	"strings"
 	"sync"
 
-	"emballm/internal/services/vertex"
-	"emballm/internal/utils"
-
+	"emballm/internal/scans"
+	"emballm/internal/scans/results"
 	"emballm/internal/services"
 	"emballm/internal/services/ollama"
+	"emballm/internal/services/vertex"
 )
 
 func Command(release string) {
 	fmt.Println(release)
-	log := Log()
 
 	err := CheckRequirements()
 	if err != nil {
-		log.Error("emballm: checking requirements: %v", err)
+		Log.Error("checking requirements: %v", err)
 		return
 	}
 
 	flags, err := ParseFlags()
 	if err != nil {
-		log.Error("emballm: parsing flags: %v", err)
+		Log.Error("parsing flags: %v", err)
 		return
 	}
 
-	excludePattern := []string{
-		"^((.*?/){0,}(_cvs|.svn|.hg|.git|.bzr|bin|obj|backup|node_modules))",
-		"(?i)\\.(?:.*?)(DS_Store|ipr|iws|bak|tmp|aac|aif|iff|m3u|mid|mp3|mpa|ra|wav|wma|3g2|3gp|asf|asx|avi|flv|mov|mp4|mpg|rm|swf|vob|wmv|bmp|gif|jpg|png|psd|tif|jar|zip|rar|exe|dll|pdb|7z|gz|tar\\.gz|tar|ahtm|ahtml|fhtml|hdm|hdml|hsql|ht|hta|htc|htd|htmls|ihtml|mht|mhtm|mhtml|ssi|stm|stml|ttml|txn|class|iml)",
-	}
-
-	var fileScans []*FileScan
+	var gatherType, scanPath string
 	if flags.Directory != "" {
-		// Define the directory to walk
-		err = filepath.WalkDir(flags.Directory, func(filePath string, file fs.DirEntry, err error) error {
-			if err != nil {
-				return err
-			}
-
-			if file.IsDir() {
-				return nil
-			}
-
-			for _, pattern := range excludePattern {
-				match, _ := regexp.MatchString(pattern, filePath)
-				if match {
-					return nil
-				}
-			}
-
-			fileScan := FileScan{filePath, Status.InProgress}
-			fileScans = append(fileScans, &fileScan)
-			return nil
-		})
-		if err != nil {
-			log.Error("getting files: %v", err)
-			return
-		}
-		log.Info(fmt.Sprintf("Scanning %s", flags.Directory))
-	} else {
-		fileScan := FileScan{flags.File, Status.InProgress}
-		fileScans = append(fileScans, &fileScan)
-		log.Info(fmt.Sprintf("Scanning %s", flags.File))
+		gatherType = scans.ScanTypes.Directory
+		scanPath = flags.Directory
+	} else if flags.File != "" {
+		gatherType = scans.ScanTypes.File
+		scanPath = flags.File
 	}
 
-	var result []utils.Issue
+	fmt.Println(fmt.Sprintf("Scanning %s: %s", gatherType, scanPath))
+
+	fileScans, err := scans.GatherFiles(gatherType, scanPath, flags.Exclude)
+	if err != nil {
+		Log.Error("gathering files: %v", err)
+		return
+	}
+
+	var result []results.Issue
 	switch flags.Service {
 	case services.Supported.Ollama:
-		var scan []utils.Issue
-		var waitGroup sync.WaitGroup
-
-		for _, fileScan := range fileScans {
-			waitGroup.Add(1)
-			go func(fileScan *FileScan) {
-				defer waitGroup.Done()
-				fileResult, err := ollama.Scan(flags.Model, fileScan.Path)
-				if err != nil {
-					log.Error("scanning: %v", err)
-					return
-				}
-				fileScan.Status = Status.Complete
-
-				// Create an instance of the Vulnerability struct
-				result := strings.ReplaceAll(*fileResult, "```", "")
-				result = strings.ReplaceAll(result, "json", "")
-
-				issue := &utils.Issue{}
-				err = json.Unmarshal([]byte(result), issue)
-				if err != nil {
-					log.Error("unmarshalling JSON:", err)
-					return
-				}
-				issue.FileName = fileScan.Path
-
-				scan = append(scan, *issue)
-				log.Info(fmt.Sprintf("\t[%s] %s", ScanStatus(fileScans), fileScan.Path))
-			}(fileScan)
+		result, err = ollama.Scan(ollama.ScanClient{Model: flags.Model}, fileScans)
+		if err != nil {
+			Log.Error("scanning: %v", err)
+			return
 		}
-
-		waitGroup.Wait()
-		result = scan
 
 	case services.Supported.Vertex:
 		var scan string
@@ -115,33 +60,33 @@ func Command(release string) {
 
 		for _, fileScan := range fileScans {
 			waitGroup.Add(1)
-			go func(fileScan *FileScan) {
+			go func(fileScan *scans.FileScan) {
 				defer waitGroup.Done()
 				fileResult, err := vertex.Scan(flags.Model, fileScan.Path)
 				if err != nil {
-					log.Error("scanning: %v", err)
+					Log.Error("scanning: %v", err)
 					return
 				}
 				scan += *fileResult
-				fileScan.Status = Status.Complete
+				fileScan.Status = scans.Status.Complete
 			}(fileScan)
 		}
 
 		waitGroup.Wait()
-		result = []utils.Issue{}
+		result = []results.Issue{}
 	default:
-		log.Error("unknown service: %s", flags.Service)
+		Log.Error("unknown service: %s", flags.Service)
 		return
 	}
 	// Marshal the struct into JSON
 	jsonData, err := json.MarshalIndent(result, "", "    ")
 	if err != nil {
-		log.Warn("marshaling JSON:", err)
+		Log.Warn("marshaling JSON:", err)
 
 	}
 	err = os.WriteFile(flags.Output, jsonData, 0644)
 	if err != nil {
-		log.Error("writing output: %v", err)
+		Log.Error("writing output: %v", err)
 		return
 	}
 }

@@ -3,19 +3,54 @@ package ollama
 import (
 	"context"
 	"embed"
+	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
+	"sync"
 
 	"github.com/ollama/ollama/api"
 	"gopkg.in/yaml.v3"
 
+	"emballm/internal/scans"
+	"emballm/internal/scans/results"
 	"emballm/internal/services"
 )
 
 //go:embed prompt.yaml
 var content embed.FS
 
-func Scan(model string, filePath string) (result *string, err error) {
+func Scan(scanClient ScanClient, fileScans []*scans.FileScan) (issues []results.Issue, err error) {
+	var scan []results.Issue
+	var waitGroup sync.WaitGroup
+
+	for _, fileScan := range fileScans {
+		waitGroup.Add(1)
+		go func(fileScan *scans.FileScan) {
+			defer waitGroup.Done()
+			fileResult, _ := ScanFile(scanClient, fileScan.Path)
+
+			fileScan.Status = scans.Status.Complete
+
+			// Create an instance of the Vulnerability struct
+			result := strings.ReplaceAll(*fileResult, "```", "")
+			result = strings.ReplaceAll(result, "json", "")
+
+			issue := &results.Issue{}
+			_ = json.Unmarshal([]byte(result), issue)
+			issue.FileName = fileScan.Path
+
+			scan = append(scan, *issue)
+			fmt.Println(fmt.Sprintf("\t[%s] %s", scans.ScanStatus(fileScans), fileScan.Path))
+		}(fileScan)
+	}
+
+	waitGroup.Wait()
+	issues = scan
+	return
+}
+
+func ScanFile(scanClient ScanClient, filePath string) (result *string, err error) {
 	var prompt services.Prompt
 	data, err := content.ReadFile("prompt.yaml")
 	if err != nil {
@@ -51,7 +86,7 @@ func Scan(model string, filePath string) (result *string, err error) {
 
 	ctx := context.Background()
 	req := &api.ChatRequest{
-		Model:    model,
+		Model:    scanClient.Model,
 		Messages: messages,
 	}
 
