@@ -20,3 +20,20 @@ type RawVulnerability struct {
 	Code                 CodeDetails `json:"code"`                  // The section of the software source code that contains the vulnerability
 	CodeSnippet          string      `json:"code_snippet"`          // A small segment or excerpt of the source code where the vulnerability is located
 }
+
+type ReferenceIdentifier struct {
+	Type string `json:"type"` // The type of the reference identifier (e.g., cwe)
+	ID   string `json:"id"`   // The ID of the reference identifier (e.g., 79)
+}
+
+type Issue struct {
+	Title                string   `json:"title"`
+	Risk                 string   `json:"risk"`
+	ReferenceIdentifiers []string `json:"reference_identifiers"`
+	FileName             string
+	RemediationSteps     string `json:"remediation_steps"`
+	IssueDescription     string `json:"issue_description"`
+	ShortDescription     string `json:"short_description"`
+	LineNumber           int    `json:"line_number"`
+	CodeSnippet          string `json:"code_snippet"`
+}

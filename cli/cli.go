@@ -1,18 +1,21 @@
 package cli
 
 import (
+	"emballm/internal/services/vertex"
+	"emballm/internal/utils"
+	"encoding/json"
 	"fmt"
 	"io/fs"
 	"log"
 	"os"
 	"path/filepath"
 	"regexp"
+	"strings"
 	"sync"
 	"time"
 
 	"emballm/internal/services"
 	"emballm/internal/services/ollama"
-	"emballm/internal/services/vertex"
 )
 
 func Command(release string) {
@@ -69,10 +72,10 @@ func Command(release string) {
 
 	scanning := true
 
-	var result *string
+	var result []utils.Issue
 	switch flags.Service {
 	case services.Supported.Ollama:
-		var scan string
+		var scan []utils.Issue
 		var waitGroup sync.WaitGroup
 
 		for _, fileScan := range fileScans {
@@ -83,8 +86,21 @@ func Command(release string) {
 				if err != nil {
 					log.Fatalf("emballm: scanning: %v", err)
 				}
-				scan += *fileResult
 				fileScan.Status = Status.Complete
+
+				// Create an instance of the Vulnerability struct
+				result := strings.ReplaceAll(*fileResult, "```", "")
+				result = strings.ReplaceAll(result, "json", "")
+
+				issue := &utils.Issue{}
+				err = json.Unmarshal([]byte(result), issue)
+				if err != nil {
+					fmt.Println("Error unmarshalling JSON:", err)
+					return
+				}
+				issue.FileName = fileScan.Path
+
+				scan = append(scan, *issue)
 			}(fileScan)
 		}
 
@@ -98,7 +114,7 @@ func Command(release string) {
 		waitGroup.Wait()
 		scanning = false
 		ScanStatus(fileScans, flags)
-		result = &scan
+		result = scan
 	case services.Supported.Vertex:
 		var scan string
 		var waitGroup sync.WaitGroup
@@ -117,12 +133,17 @@ func Command(release string) {
 		}
 
 		waitGroup.Wait()
-		result = &scan
+		result = []utils.Issue{}
 	default:
 		log.Fatalf("emballm: unknown service: %s", flags.Service)
 	}
-
-	err = os.WriteFile(flags.Output, []byte(*result), 0644)
+	// Marshal the struct into JSON
+	jsonData, err := json.MarshalIndent(result, "", "    ")
+	if err != nil {
+		fmt.Println("Error marshaling JSON:", err)
+		return
+	}
+	err = os.WriteFile(flags.Output, jsonData, 0644)
 	if err != nil {
 		log.Fatalf("emballm: writing output: %v", err)
 	}
