@@ -15,7 +15,7 @@ func ParseFlags() (flags Flags, err error) {
 	fileFlag := flag.String("file", "", "file to scan")
 	serviceFlag := flag.String("service", "ollama", "service to use")
 	modelFlag := flag.String("model", "gemma:2b", "model to use")
-	outputFlag := flag.String("output", "sarif.json", "SARIF output file")
+	outputFlag := flag.String("output", "issues_v2.json", "SARIF output file")
 
 	flag.Parse()
 

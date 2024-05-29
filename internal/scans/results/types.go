@@ -37,3 +37,13 @@ type Issue struct {
 	LineNumber           int    `json:"line_number"`
 	CodeSnippet          string `json:"code_snippet"`
 }
+
+type Meta struct {
+	Key        []string `json:"key"`
+	Subproduct string   `json:"subproduct"`
+}
+
+type Data struct {
+	Meta   Meta    `json:"meta"`
+	Issues []Issue `json:"issues"`
+}

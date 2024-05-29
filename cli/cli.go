@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"emballm/internal/services/ollama"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -11,7 +12,6 @@ import (
 	"emballm/internal/scans"
 	"emballm/internal/scans/results"
 	"emballm/internal/services"
-	"emballm/internal/services/ollama"
 	"emballm/internal/services/vertex"
 )
 
@@ -92,8 +92,18 @@ func Command(release string) {
 		Log.Error("unknown service: %s", flags.Service)
 		return
 	}
+
+	jsonV2 :=
+		results.Data{
+			Meta: results.Meta{
+				Key:        []string{"issueName", "fileName"},
+				Subproduct: "emballm",
+			},
+			Issues: result,
+		}
+
 	// Marshal the struct into JSON
-	jsonData, err := json.MarshalIndent(result, "", "    ")
+	jsonData, err := json.MarshalIndent(jsonV2, "", "    ")
 	if err != nil {
 		Log.Warn("marshaling JSON:", err)
 
