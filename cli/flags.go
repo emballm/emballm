@@ -11,10 +11,11 @@ func ParseFlags() (flags Flags, err error) {
 		flag.PrintDefaults()
 	}
 
-	directoryFlag := flag.String("directory", "", "directory to scan")
-	fileFlag := flag.String("file", "", "file to scan")
+	directoryFlag := flag.String("directory", "", "path to directory to scan")
+	fileFlag := flag.String("file", "", "path to file to scan")
 	serviceFlag := flag.String("service", "ollama", "service to use")
 	modelFlag := flag.String("model", "gemma:2b", "model to use")
+	configFlag := flag.String("config", "config.yaml", "path to config file")
 	outputFlag := flag.String("output", "issues_v2.json", "SARIF output file")
 
 	flag.Parse()
@@ -29,6 +30,7 @@ func ParseFlags() (flags Flags, err error) {
 	flags.Service = *serviceFlag
 	flags.Model = *modelFlag
 
+	flags.Config = *configFlag
 	flags.Output = *outputFlag
 
 	return
@@ -39,5 +41,6 @@ type Flags struct {
 	File      string
 	Service   string
 	Model     string
+	Config    string
 	Output    string
 }

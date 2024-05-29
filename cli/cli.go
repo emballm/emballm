@@ -1,11 +1,12 @@
 package cli
 
 import (
-	"emballm/internal/services/ollama"
 	"encoding/json"
 	"fmt"
 	"os"
 	"sync"
+
+	"emballm/internal/services/ollama"
 
 	"gopkg.in/yaml.v3"
 
@@ -24,8 +25,14 @@ func Command(release string) {
 		return
 	}
 
+	flags, err := ParseFlags()
+	if err != nil {
+		Log.Error("parsing flags: %v", err)
+		return
+	}
+
 	var config Config
-	data, err := os.ReadFile("config.yaml")
+	data, err := os.ReadFile(flags.Config)
 	if err != nil {
 		Log.Error("reading config file: %v", err)
 		return
@@ -33,12 +40,6 @@ func Command(release string) {
 	err = yaml.Unmarshal(data, &config)
 	if err != nil {
 		Log.Error("unmarshalling config file: %v", err)
-		return
-	}
-
-	flags, err := ParseFlags()
-	if err != nil {
-		Log.Error("parsing flags: %v", err)
 		return
 	}
 
