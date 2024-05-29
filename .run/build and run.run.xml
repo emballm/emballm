@@ -2,7 +2,7 @@
   <configuration default="false" name="build and run" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
     <deployment type="dockerfile">
       <settings>
-        <option name="imageTag" value="emballm-runner" />
+        <option name="imageTag" value="us-east1-docker.pkg.dev/sto-play/sto-private/emballm-runner" />
         <option name="containerName" value="emballm-runner" />
         <option name="sourceFilePath" value="Dockerfile" />
       </settings>

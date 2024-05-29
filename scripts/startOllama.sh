@@ -5,8 +5,8 @@ which ollama
 ollama --version
 ollama serve &
 # TODO should poll for ollama to be available
-sleep 30
-ollama pull gemma:2b
+sleep 15
+ollama pull gemma:7b
 
 # run emballm
 . /bin/startEmballm.sh "$@"

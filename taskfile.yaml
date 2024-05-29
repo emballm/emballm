@@ -16,9 +16,9 @@ tasks:
   clean:
     cmds:
       - rm -rf build/dist
-  docker-build:
+  docker-build-gar:
     cmds:
-      - docker build -t emballm-runner:latest .
+      - docker build --no-cache -t us-east1-docker.pkg.dev/sto-play/sto-private/emballm-runner:latest .
   make-scratch:
     cmds:
     - mkdir -p scratch
