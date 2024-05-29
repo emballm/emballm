@@ -6,6 +6,8 @@ import (
 	"os"
 	"sync"
 
+	"gopkg.in/yaml.v3"
+
 	"emballm/internal/scans"
 	"emballm/internal/scans/results"
 	"emballm/internal/services"
@@ -19,6 +21,18 @@ func Command(release string) {
 	err := CheckRequirements()
 	if err != nil {
 		Log.Error("checking requirements: %v", err)
+		return
+	}
+
+	var config Config
+	data, err := os.ReadFile("config.yaml")
+	if err != nil {
+		Log.Error("reading config file: %v", err)
+		return
+	}
+	err = yaml.Unmarshal(data, &config)
+	if err != nil {
+		Log.Error("unmarshalling config file: %v", err)
 		return
 	}
 
@@ -39,7 +53,7 @@ func Command(release string) {
 
 	fmt.Println(fmt.Sprintf("Scanning %s: %s", gatherType, scanPath))
 
-	fileScans, err := scans.GatherFiles(gatherType, scanPath, flags.Exclude)
+	fileScans, err := scans.GatherFiles(gatherType, scanPath, config.Exclude)
 	if err != nil {
 		Log.Error("gathering files: %v", err)
 		return

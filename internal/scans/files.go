@@ -3,27 +3,11 @@ package scans
 import (
 	"fmt"
 	"io/fs"
-	"os"
 	"path/filepath"
 	"regexp"
-
-	"gopkg.in/yaml.v3"
 )
 
-func GatherFiles(gatherType string, path string, excludesFilePath string) (fileScans []*FileScan, err error) {
-	var exclude Exclude
-	if excludesFilePath != "" {
-		// Read the exclude file
-		data, err := os.ReadFile(excludesFilePath)
-		if err != nil {
-			return nil, fmt.Errorf("reading exclude file: %v", err)
-		}
-		err = yaml.Unmarshal(data, &exclude)
-		if err != nil {
-			return nil, fmt.Errorf("unmarshalling exclude file: %v", err)
-		}
-	}
-
+func GatherFiles(gatherType string, path string, exclude []string) (fileScans []*FileScan, err error) {
 	switch gatherType {
 	case ScanTypes.File:
 		fileScan := FileScan{path, Status.InProgress}
@@ -38,7 +22,7 @@ func GatherFiles(gatherType string, path string, excludesFilePath string) (fileS
 				return nil
 			}
 
-			for _, pattern := range exclude.Patterns {
+			for _, pattern := range exclude {
 				match, _ := regexp.MatchString(pattern, filePath)
 				if match {
 					return nil
