@@ -10,11 +10,11 @@ RUN go build
 FROM golang:1.22.3-bullseye as final
 LABEL authors="andershokinson,andrewmollohan,aubreyklaft,gabrielaboy,williamwisseman"
 
-WORKDIR /app
+WORKDIR /bin
 #copy executable and run scripts
 COPY --from=base /app/emballm /bin/emballm
 COPY --from=base --chmod=755 /app/scripts/*.sh /bin/
-COPY --from=base /app/config.yaml .
+COPY --from=base /app/config.yaml /bin/config.yaml
 # Install curl and ollama
 RUN apt update && apt upgrade && apt install -y curl
 RUN curl -fsSL https://ollama.com/install.sh | sh

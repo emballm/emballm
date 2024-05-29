@@ -9,4 +9,6 @@ sleep 15
 ollama pull gemma:7b
 
 # run emballm
+ls
+pwd
 . /bin/startEmballm.sh "$@"
