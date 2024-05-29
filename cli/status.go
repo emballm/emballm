@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func ScanStatus(fileScans []*FileScan, flags Flags) {
+func ScanStatus(fileScans []*FileScan) (status string) {
 	totalFiles := len(fileScans)
 	completeFiles := 0
 	for _, fileScan := range fileScans {
@@ -12,5 +12,5 @@ func ScanStatus(fileScans []*FileScan, flags Flags) {
 			completeFiles++
 		}
 	}
-	fmt.Print(fmt.Sprintf("\t%d / %d\r", completeFiles, totalFiles))
+	return fmt.Sprintf("%d/%d", completeFiles, totalFiles)
 }

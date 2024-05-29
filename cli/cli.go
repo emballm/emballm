@@ -1,18 +1,17 @@
 package cli
 
 import (
-	"emballm/internal/services/vertex"
-	"emballm/internal/utils"
 	"encoding/json"
 	"fmt"
 	"io/fs"
-	"log"
 	"os"
 	"path/filepath"
 	"regexp"
 	"strings"
 	"sync"
-	"time"
+
+	"emballm/internal/services/vertex"
+	"emballm/internal/utils"
 
 	"emballm/internal/services"
 	"emballm/internal/services/ollama"
@@ -20,16 +19,18 @@ import (
 
 func Command(release string) {
 	fmt.Println(release)
-	fmt.Println()
+	log := Log()
 
 	err := CheckRequirements()
 	if err != nil {
-		log.Fatalf("emballm: checking requirements: %v", err)
+		log.Error("emballm: checking requirements: %v", err)
+		return
 	}
 
 	flags, err := ParseFlags()
 	if err != nil {
-		log.Fatalf("emballm: parsing flags: %v", err)
+		log.Error("emballm: parsing flags: %v", err)
+		return
 	}
 
 	excludePattern := []string{
@@ -61,16 +62,15 @@ func Command(release string) {
 			return nil
 		})
 		if err != nil {
-			log.Fatalf("emballm: getting files: %v", err)
+			log.Error("getting files: %v", err)
+			return
 		}
-		fmt.Println(fmt.Sprintf("Scanning %s\n", flags.Directory))
+		log.Info(fmt.Sprintf("Scanning %s", flags.Directory))
 	} else {
 		fileScan := FileScan{flags.File, Status.InProgress}
 		fileScans = append(fileScans, &fileScan)
-		fmt.Println(fmt.Sprintf("Scanning %s", flags.File))
+		log.Info(fmt.Sprintf("Scanning %s", flags.File))
 	}
-
-	scanning := true
 
 	var result []utils.Issue
 	switch flags.Service {
@@ -84,7 +84,8 @@ func Command(release string) {
 				defer waitGroup.Done()
 				fileResult, err := ollama.Scan(flags.Model, fileScan.Path)
 				if err != nil {
-					log.Fatalf("emballm: scanning: %v", err)
+					log.Error("scanning: %v", err)
+					return
 				}
 				fileScan.Status = Status.Complete
 
@@ -95,26 +96,19 @@ func Command(release string) {
 				issue := &utils.Issue{}
 				err = json.Unmarshal([]byte(result), issue)
 				if err != nil {
-					fmt.Println("Error unmarshalling JSON:", err)
+					log.Error("unmarshalling JSON:", err)
 					return
 				}
 				issue.FileName = fileScan.Path
 
 				scan = append(scan, *issue)
+				log.Info(fmt.Sprintf("\t[%s] %s", ScanStatus(fileScans), fileScan.Path))
 			}(fileScan)
 		}
 
-		go func() {
-			for scanning {
-				ScanStatus(fileScans, flags)
-				time.Sleep(1 * time.Second)
-			}
-		}()
-
 		waitGroup.Wait()
-		scanning = false
-		ScanStatus(fileScans, flags)
 		result = scan
+
 	case services.Supported.Vertex:
 		var scan string
 		var waitGroup sync.WaitGroup
@@ -125,7 +119,8 @@ func Command(release string) {
 				defer waitGroup.Done()
 				fileResult, err := vertex.Scan(flags.Model, fileScan.Path)
 				if err != nil {
-					log.Fatalf("emballm: scanning: %v", err)
+					log.Error("scanning: %v", err)
+					return
 				}
 				scan += *fileResult
 				fileScan.Status = Status.Complete
@@ -135,16 +130,18 @@ func Command(release string) {
 		waitGroup.Wait()
 		result = []utils.Issue{}
 	default:
-		log.Fatalf("emballm: unknown service: %s", flags.Service)
+		log.Error("unknown service: %s", flags.Service)
+		return
 	}
 	// Marshal the struct into JSON
 	jsonData, err := json.MarshalIndent(result, "", "    ")
 	if err != nil {
-		fmt.Println("Error marshaling JSON:", err)
-		return
+		log.Warn("marshaling JSON:", err)
+
 	}
 	err = os.WriteFile(flags.Output, jsonData, 0644)
 	if err != nil {
-		log.Fatalf("emballm: writing output: %v", err)
+		log.Error("writing output: %v", err)
+		return
 	}
 }
