@@ -18,7 +18,11 @@ tasks:
       - rm -rf build/dist
   docker-build-gar:
     cmds:
-      - docker build --no-cache -t us-east1-docker.pkg.dev/sto-play/sto-private/emballm-runner:latest .
+      - pkill Ollama || true
+      - pkill ollama || true
+      - mkdir -p $PWD/scratch/models
+      - OLLAMA_MODELS=$PWD/scratch/models ollama pull gemma:7b
+      - DOCKER_DEFAULT_PLATFORM=linux/arm64 docker build --no-cache -t us-east1-docker.pkg.dev/sto-play/sto-private/emballm-runner:latest .
   make-scratch:
     cmds:
     - mkdir -p scratch
