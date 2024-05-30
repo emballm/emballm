@@ -14,11 +14,13 @@ type scanTypes struct {
 
 var Status = status{
 	InProgress: "🔍",
+	Nope:       "X ",
 	Complete:   "✅ ",
 }
 
 type status struct {
 	InProgress string
+	Nope       string
 	Complete   string
 }
 

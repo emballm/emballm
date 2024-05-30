@@ -28,8 +28,12 @@ func Scan(scanClient ScanClient, fileScans []*scans.FileScan) (issues []results.
 		waitGroup.Add(1)
 		go func(fileScan *scans.FileScan) {
 			defer waitGroup.Done()
-			fileResult, _ := ScanFile(scanClient, fileScan.Path)
-
+			fileResult, err := ScanFile(scanClient, fileScan.Path)
+			fileScan.Status = scans.Status.Complete
+			if err != nil {
+				fileScan.Status = scans.Status.Nope
+				return
+			}
 			fileScan.Status = scans.Status.Complete
 
 			// Create an instance of the Vulnerability struct
@@ -37,7 +41,11 @@ func Scan(scanClient ScanClient, fileScans []*scans.FileScan) (issues []results.
 			result = strings.ReplaceAll(result, "json", "")
 
 			issue := &results.Issue{}
-			_ = json.Unmarshal([]byte(result), issue)
+			err = json.Unmarshal([]byte(result), issue)
+			if err != nil {
+				fileScan.Status = scans.Status.Nope
+				return
+			}
 			issue.FileName = fileScan.Path
 
 			scan = append(scan, *issue)

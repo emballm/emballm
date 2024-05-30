@@ -97,7 +97,7 @@ func Command(release string) {
 	jsonV2 :=
 		results.Data{
 			Meta: results.Meta{
-				Key:        []string{"issueName", "fileName"},
+				Key:        []string{"title"},
 				Subproduct: "emballm",
 			},
 			Issues: result,
