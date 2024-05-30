@@ -1,30 +1,17 @@
-FROM golang:1.22.3-bullseye as base
-
-WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod download
-COPY . .
-RUN go build
-
-
-FROM golang:1.22.3-bullseye as final
-LABEL authors="andershokinson,andrewmollohan,aubreyklaft,gabrielaboy,williamwisseman"
+FROM --platform=linux/amd64 ollama/ollama:latest as final
 
 WORKDIR /bin
 
-ENV OLLAMA_NUM_PARALLEL=4
 ENV OLLAMA_MODELS=/app/models
 COPY scratch/models /app/models
 
-#copy executable and run scripts
-COPY --from=base /app/emballm /bin/emballm
-COPY --from=base --chmod=755 /app/scripts/*.sh /bin/
-COPY --from=base /app/config.yaml /bin/config.yaml
-# Install curl and ollama
-RUN apt update && apt upgrade && apt install -y curl
-RUN curl -fsSL https://ollama.com/install.sh | sh
+COPY scratch/emballm /bin/emballm
+COPY --chmod=755 scripts/*.sh /bin/
+COPY config.yaml /bin/config.yaml
 
 ENV EMBALLM_EXECUTABLE=/bin/emballm
 
-ENTRYPOINT ["/bin/startOllama.sh"]
-CMD [ "-directory", "/harness" ]
+RUN apt update && apt install -y curl
+
+ENTRYPOINT ["/bin/start_ollama.sh"]
+CMD [ "-directory", "/harness", "-config",  "/bin/config.yaml", "-model", "gemma:7b", "-output", "/addon/output.json"]
