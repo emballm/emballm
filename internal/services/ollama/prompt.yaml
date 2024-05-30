@@ -22,6 +22,10 @@ messages:
             "enum": ["Low", "Medium", "High", "Critical"],
             "description": "A measure of the potential impact of the vulnerability"
           },
+          "severity": {
+            "type": "float",
+            "description": "A score between 0 and 10 of the potential impact of the vulnerability"
+          },
           "remediation_steps": {
             "type": "string",
             "description": "Instructions or actions needed to fix or mitigate the vulnerability"
