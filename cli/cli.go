@@ -104,7 +104,7 @@ func Command(release string) {
 		}
 
 	// Marshal the struct into JSON
-	jsonData, err := json.MarshalIndent(jsonV2, "", "    ")
+	jsonData, err := json.Marshal(jsonV2)
 	if err != nil {
 		Log.Warn("marshaling JSON:", err)
 
