@@ -30,7 +30,8 @@ tasks:
       platform: linux
       architecture: amd64
     cmds:
-      - DOCKER_DEFAULT_PLATFORM={{.platform}}/{{.architecture}} docker run -it -v $PWD/scratch/harness:/harness -v $PWD/scratch/addon:/addon  us-east1-docker.pkg.dev/sto-play/sto-private/emballm-runner:latest
+      # ENV OLLAMA_NUM_PARALLEL=2 
+      - DOCKER_DEFAULT_PLATFORM={{.platform}}/{{.architecture}} docker run -it -e OLLAMA_DEBUG=true -e OLLAMA_KEEP_ALIVE=true  -v $PWD/scratch/harness:/harness -v $PWD/scratch/addon:/addon  us-east1-docker.pkg.dev/sto-play/sto-private/emballm-runner:latest
   make-scratch:
     cmds:
     - mkdir -p scratch

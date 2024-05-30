@@ -2,13 +2,10 @@
 
 which ollama
 ollama --version
-ollama serve > /addon/ollama.log &
-curl --connect-timeout 5 \
-  --max-time 10 \
-  --retry 5 \
-  --retry-delay 0 \
-  --retry-max-time 40 \
-  http://localhost:11434/api/generate -d '{"model": "gemma:7b"}'
-
+ollama serve &
+sleep 5
+while [[ "$(curl -s -o /dev/nul -w ''%{http_code}'' http://localhost:11434)" != "200" ]]; do
+  sleep 5
+done
 echo ${EMBALLM_EXECUTABLE} "$@"
 ${EMBALLM_EXECUTABLE} "$@"
