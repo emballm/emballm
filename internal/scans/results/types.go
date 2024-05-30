@@ -27,8 +27,8 @@ type ReferenceIdentifier struct {
 }
 
 type Issue struct {
-	Title string `json:"title"`
-	Risk  string `json:"risk"`
+	Title    string `json:"title"`
+	Severity string `json:"severity"`
 	// ReferenceIdentifiers []ReferenceIdentifier `json:"reference_identifiers"`
 	FileName         string `json:"file_name"`
 	RemediationSteps string `json:"remediation_steps"`
