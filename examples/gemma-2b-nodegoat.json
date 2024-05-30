@@ -1,1 +1,590 @@
-{"meta":{"key":["title"],"subproduct":"emballm"},"issues":[{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/fixtures/users/new_user.json","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/fixtures/users/admin.json","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/artifacts/cert/server.crt","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/routes/benefits.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/config/env/production.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/views/memos.html","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/routes/memos.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app.json","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/logout_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/allocations_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/.travis.yml","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/dashboard_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/assets/vendor/bootstrap/bootstrap-tour.css","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/routes/allocations.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/data/research-dao.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/.jshintrc","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/signup_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/assets/js/tour/redirects-steps.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/data/memos-dao.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/docker-compose.yml","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/.jshintignore","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/routes/index.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/routes/research.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/research_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/memos_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/views/signup.html","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/artifacts/cert/server.key","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/profile_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/views/allocations.html","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/data/allocations-dao.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/cypress.json","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/Dockerfile","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/views/research.html","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/routes/error.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/config/config.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/data/contributions-dao.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/config/env/development.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/Procfile","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/tsconfig.json","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/plugins/index.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/fixtures/users/user.json","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/config/env/all.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/config/env/test.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/views/tutorial/a4.html","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/tutorial_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/general_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/routes/contributions.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/views/tutorial/ssrf.html","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/data/benefits-dao.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/routes/tutorial.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/views/error-template.html","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/nodemon.json","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/benefits_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/login_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/.dockerignore","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/integration/learn_spec.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/test/e2e/support/commands.js","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""},{"title":"Vulnerability","risk":"","file_name":"scratch/harness/app/views/benefits.html","remediation_steps":"","issue_description":"","short_description":"","line_number":0,"code_snippet":""}]}
+{
+  "meta": {
+    "key": [
+      "title"
+    ],
+    "subproduct": "emballm"
+  },
+  "issues": [
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/fixtures/users/new_user.json",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/fixtures/users/admin.json",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/artifacts/cert/server.crt",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/routes/benefits.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/config/env/production.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/views/memos.html",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/routes/memos.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app.json",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/logout_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/allocations_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/.travis.yml",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/dashboard_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/assets/vendor/bootstrap/bootstrap-tour.css",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/routes/allocations.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/data/research-dao.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/.jshintrc",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/signup_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/assets/js/tour/redirects-steps.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/data/memos-dao.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/docker-compose.yml",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/.jshintignore",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/routes/index.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/routes/research.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/research_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/memos_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/views/signup.html",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/artifacts/cert/server.key",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/profile_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/views/allocations.html",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/data/allocations-dao.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/cypress.json",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/Dockerfile",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/views/research.html",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/routes/error.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/config/config.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/data/contributions-dao.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/config/env/development.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/Procfile",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/tsconfig.json",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/plugins/index.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/fixtures/users/user.json",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/config/env/all.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/config/env/test.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/views/tutorial/a4.html",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/tutorial_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/general_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/routes/contributions.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/views/tutorial/ssrf.html",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/data/benefits-dao.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/routes/tutorial.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/views/error-template.html",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/nodemon.json",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/benefits_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/login_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/.dockerignore",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/integration/learn_spec.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/test/e2e/support/commands.js",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    },
+    {
+      "title": "Vulnerability",
+      "risk": "",
+      "file_name": "scratch/harness/app/views/benefits.html",
+      "remediation_steps": "",
+      "issue_description": "",
+      "short_description": "",
+      "line_number": 0,
+      "code_snippet": ""
+    }
+  ]
+}
