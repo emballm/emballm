@@ -8,7 +8,7 @@
   "issues": [
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/util/cookie.go",
       "remediation_steps": "",
       "issue_description": "",
@@ -18,7 +18,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/vulnerability/xxe/xxe.go",
       "remediation_steps": "",
       "issue_description": "",
@@ -28,7 +28,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/public/js/npm.js",
       "remediation_steps": "",
       "issue_description": "",
@@ -38,7 +38,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.xss2.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -48,7 +48,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/util/template.go",
       "remediation_steps": "",
       "issue_description": "",
@@ -58,7 +58,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/docker-compose.yml",
       "remediation_steps": "",
       "issue_description": "",
@@ -68,7 +68,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/vulnerability/xss/function.go",
       "remediation_steps": "",
       "issue_description": "",
@@ -78,7 +78,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.sqli1.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -88,7 +88,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/setup/function.go",
       "remediation_steps": "",
       "issue_description": "",
@@ -98,7 +98,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/Dockerfile",
       "remediation_steps": "",
       "issue_description": "",
@@ -108,7 +108,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.setup.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -118,7 +118,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/vulnerability/csa/csa.go",
       "remediation_steps": "",
       "issue_description": "",
@@ -128,7 +128,7 @@
     },
     {
       "title": "SQL Injection",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/config/config.json",
       "remediation_steps": "",
       "issue_description": "",
@@ -138,7 +138,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.xxe.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -148,7 +148,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.xss1.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -158,7 +158,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/user/session/session.go",
       "remediation_steps": "",
       "issue_description": "",
@@ -168,7 +168,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.csa.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -178,7 +178,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/setup.sidebar.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -188,7 +188,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.index.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -198,7 +198,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.setting.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -208,7 +208,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.login.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -218,7 +218,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.sqli2.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -228,7 +228,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/util/config/config.go",
       "remediation_steps": "",
       "issue_description": "",
@@ -238,7 +238,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/util/http.go",
       "remediation_steps": "",
       "issue_description": "",
@@ -248,7 +248,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/util/middleware/middleware.go",
       "remediation_steps": "",
       "issue_description": "",
@@ -258,7 +258,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.header.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -268,7 +268,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/templates/template.footer.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -278,7 +278,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/govwa/vulnerability/idor/function.go",
       "remediation_steps": "",
       "issue_description": "",

@@ -8,7 +8,7 @@
   "issues": [
     {
       "title": "XSS vulnerability in csaHandler function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/vulnerability/csa/csa.go",
       "remediation_steps": "Encode user input before displaying it in the HTML output to prevent malicious scripts from being injected.",
       "issue_description": "The `csaHandler` function fetches a user's ID from the session and directly embeds it in the HTML output without any encoding. This makes it vulnerable to XSS attacks.",
@@ -18,7 +18,7 @@
     },
     {
       "title": "Insecure Direct Object References Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.idor2.html",
       "remediation_steps": "Use prepared statements or parameterized queries to mitigate the risk of SQL injection.",
       "issue_description": "The code snippet is vulnerable to Insecure Direct Object References (IDOR) attacks. An attacker could potentially manipulate the request parameters to access or modify sensitive data.",
@@ -28,7 +28,7 @@
     },
     {
       "title": "Sensitive Information Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/docker-compose.yml",
       "remediation_steps": "Configure MySQL root password and restrict access to only required users",
       "issue_description": "The MySQL root account is configured with a default password (`admin321`). This poses a significant security risk as malicious actors can easily gain access to the database and compromise sensitive information.",
@@ -38,7 +38,7 @@
     },
     {
       "title": "SQL Injection vulnerability in index template",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.index.html",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent user-controlled data from being directly inserted into the SQL query.",
       "issue_description": "The `template.index` template uses user-supplied data from the request directly in the SQL query, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the request, which would be executed on the database server.",
@@ -48,7 +48,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.setting.html",
       "remediation_steps": "Use prepared statements or escape user input properly to prevent malicious code injection.",
       "issue_description": "The code snippet allows an attacker to inject arbitrary JavaScript code into the page, potentially compromising the system.",
@@ -58,7 +58,7 @@
     },
     {
       "title": "SQL Injection vulnerability in the indexHandler function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/app.go",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent user input from directly being inserted into the SQL query.",
       "issue_description": "The `indexHandler` function uses user input directly in the SQL query, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the request that would be executed on the database.",
@@ -68,7 +68,7 @@
     },
     {
       "title": "Potentially vulnerable code dependencies",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/public/js/npm.js",
       "remediation_steps": "Upgrade dependencies or remove vulnerable versions",
       "issue_description": "The code depends on multiple external libraries that have known vulnerabilities. This could allow an attacker to exploit these vulnerabilities and gain access to sensitive data or compromise the system.",
@@ -78,7 +78,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/config/config.json",
       "remediation_steps": "Store sensitive data in a secure location, such as a database with appropriate access controls.",
       "issue_description": "The code snippet exposes sensitive data, including username, password, database name, and session key in plain text. This makes them vulnerable to unauthorized access.",
@@ -88,7 +88,7 @@
     },
     {
       "title": "Unapproved Template Data Usage",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/util/template.go",
       "remediation_steps": "Use `Template.ExecuteTemplate` with a sanitized data map to prevent unauthorized data from being injected into the template.",
       "issue_description": "The `UnSafeRender` function directly uses user-supplied data in the `template.ExecuteTemplate` function without any sanitization. This makes it vulnerable to Cross-Site Scripting (XSS) attacks.",
@@ -98,7 +98,7 @@
     },
     {
       "title": "SQL Injection Vulnerability in Profile Page",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.sqli2.html",
       "remediation_steps": "Validate user input before querying the database and use prepared statements instead of string concatenation.",
       "issue_description": "The code snippet allows an attacker to inject malicious SQL code into the 'city' and 'number' fields, potentially compromising the application.",
@@ -108,7 +108,7 @@
     },
     {
       "title": "Cross Site Scripting Vulnerability in template.xss1",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.xss1.html",
       "remediation_steps": "Encode user input before displaying it in the template to prevent malicious scripts from being injected.",
       "issue_description": "The use of HTML template syntax without proper input validation and encoding allows an attacker to inject malicious JavaScript code into the page, potentially compromising the security of the application.",
@@ -118,7 +118,7 @@
     },
     {
       "title": "XSS vulnerability in footer template",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.footer.html",
       "remediation_steps": "Remove or encode special characters from the copyright text to prevent malicious scripts from being injected.",
       "issue_description": "An attacker could inject malicious JavaScript code into the copyright text displayed in the footer, potentially compromising the integrity of the website.",
@@ -128,7 +128,7 @@
     },
     {
       "title": "Hardcoded String Vulnerability",
-      "severity": "Medium",
+      "severity": 5.5,
       "file_name": "scratch/govwa/vulnerability/xxe/xxe.go",
       "remediation_steps": "Use environment variables or other secure methods to store sensitive information",
       "issue_description": "The code directly prints the string 'tes', which could be exploited by an attacker to inject malicious code or perform unauthorized actions",
@@ -138,7 +138,7 @@
     },
     {
       "title": "SQL Injection in GET request parameters",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/vulnerability/sqli/sqli.go",
       "remediation_steps": "Sanitize user-supplied input before using it in SQL queries.",
       "issue_description": "The code directly uses the `uid` parameter from the request without any validation or sanitization. This makes it vulnerable to SQL injection attacks, as an attacker can supply malicious SQL code in the `uid` parameter.",
@@ -148,7 +148,7 @@
     },
     {
       "title": "Vulnerability in Go code: Insecure File Access",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/Dockerfile",
       "remediation_steps": "Use os.Open with appropriate permissions to avoid unauthorized access",
       "issue_description": "The code uses os.ReadFile to access a file without verifying the file path or permissions, which could potentially lead to unauthorized access to sensitive files or directories.",
@@ -158,7 +158,7 @@
     },
     {
       "title": "GoVWA - SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/README.md",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent SQL injection attacks.",
       "issue_description": "The application does not use prepared statements or parameterized queries for user-supplied input, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the input fields, which could lead to unauthorized access to sensitive data or even complete system compromise.",
@@ -168,7 +168,7 @@
     },
     {
       "title": "SQL Injection Vulnerability in UnsafeQueryGetData function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/vulnerability/sqli/function.go",
       "remediation_steps": "Use prepared statements instead of string concatenation to prevent SQL injection attacks.",
       "issue_description": "The UnsafeQueryGetData function uses string concatenation to construct an SQL query, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the uid parameter, which would be directly concatenated into the query, potentially compromising the database.",
@@ -178,7 +178,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.login.html",
       "remediation_steps": "Use prepared statements or escape user input before displaying it in the response.",
       "issue_description": "The code snippet allows an attacker to inject malicious JavaScript code into the login form's placeholder text, potentially compromising the integrity and confidentiality of user data.",
@@ -188,7 +188,7 @@
     },
     {
       "title": "SQL Injection in createUsersTable and createProfileTable functions",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/setup/setup.go",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent SQL injection vulnerabilities.",
       "issue_description": "The functions createUsersTable and createProfileTable use string concatenation to construct SQL statements, making them vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the input fields, which could be executed by the database server.",
@@ -198,7 +198,7 @@
     },
     {
       "title": "Sensitive Data Exposure in Web Server Configuration",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/util/config/config.go",
       "remediation_steps": "Store sensitive configuration data in environment variables or use a secure configuration management tool like Hashicorp Vault",
       "issue_description": "The Webserver and Webport values are stored directly in the source code in plain text, making them vulnerable to unauthorized access if the configuration file is compromised.",
@@ -208,7 +208,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.csa.html",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent SQL injection attacks.",
       "issue_description": "The code uses user-supplied input directly in an SQL query, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code that would be executed on the database server.",
@@ -218,7 +218,7 @@
     },
     {
       "title": "HttpOnly Cookie Not Set to True Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/user/session/session.go",
       "remediation_steps": "Set the HttpOnly flag to true in the session options to prevent unauthorized JavaScript code from reading the cookie contents.",
       "issue_description": "The code uses `session.Options = \u0026sessions.Options{ ... HttpOnly: false, ... }` which sets the `HttpOnly` flag to `false`. This makes the session cookie vulnerable to cross-site scripting (XSS) attacks, as malicious JavaScript code can read the cookie contents.",
@@ -228,7 +228,7 @@
     },
     {
       "title": "SQL Injection vulnerability in GetData function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/vulnerability/idor/function.go",
       "remediation_steps": "Use prepared statements instead of string concatenation to prevent SQL injection attacks.",
       "issue_description": "The GetData function uses string concatenation to build an SQL query, making it vulnerable to SQL injection attacks. An attacker could supply malicious values in the uid parameter, leading to unauthorized data access or manipulation.",
@@ -238,7 +238,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS)",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/setup.sidebar.html",
       "remediation_steps": "Encode user-generated data before displaying it in the DOM",
       "issue_description": "An attacker could inject malicious JavaScript code into the URL or form data, which would be reflected back to the browser and executed by the victim.",
@@ -248,7 +248,7 @@
     },
     {
       "title": "SQL Injection Vulnerability in checkUserQuery function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/user/user.go",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent SQL injection vulnerabilities.",
       "issue_description": "The checkUserQuery function is vulnerable to SQL injection because it directly concatenates user-supplied values into the SQL query without proper validation or escaping. An attacker could potentially inject malicious SQL code into the username or password fields, allowing them to gain unauthorized access to the database.",
@@ -258,7 +258,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/setup/function.go",
       "remediation_steps": "Use prepared statements or parameterized queries to mitigate SQL injection vulnerabilities.",
       "issue_description": "The code directly inserts user-supplied values into SQL statements without proper validation or sanitization, making it vulnerable to SQL injection attacks.",
@@ -268,7 +268,7 @@
     },
     {
       "title": "SQL Injection Vulnerability in DetectSQLMap Function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/util/middleware/middleware.go",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent SQL injection attacks.",
       "issue_description": "The DetectSQLMap function checks the user agent header for the presence of the string \"sqlmap\". If detected, it responds with a Forbidden status code and a generic message. However, this response is not secure as it does not provide any information about the vulnerability or how it was detected.",
@@ -278,7 +278,7 @@
     },
     {
       "title": "Font-face vulnerabilities in CSS code",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/public/css/open-sans.css",
       "remediation_steps": "Use a different font or remove the use of the 'Open Sans' font family",
       "issue_description": "The code uses the 'Open Sans' font family, which has multiple known vulnerabilities. Attackers could exploit these vulnerabilities to inject malicious code into the web page or steal user data.",
@@ -288,7 +288,7 @@
     },
     {
       "title": "Vulnerable Code: Cross-Site Scripting (XSS)",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/vulnerability/xss/function.go",
       "remediation_steps": "Use prepared statements or escape user input before inserting it into SQL queries",
       "issue_description": "The code is vulnerable to Cross-Site Scripting (XSS) attacks. An attacker can inject malicious JavaScript code into the `GetExp` function, which will be reflected back to the client and executed in the browser.",
@@ -298,7 +298,7 @@
     },
     {
       "title": "Vulnerability Report",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.sidebar.html",
       "remediation_steps": "Upgrade to the latest version of the framework or library to address known vulnerabilities.",
       "issue_description": "The code contains vulnerabilities related to SQL Injection, Cross Site Scripting (XSS), and IDOR. These vulnerabilities could allow an attacker to compromise the system or steal sensitive data.",
@@ -308,7 +308,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.xss2.html",
       "remediation_steps": "Sanitize user input before displaying it in the DOM",
       "issue_description": "An attacker can inject malicious JavaScript code into the 'name', 'city', or 'number' fields, which will be reflected back and executed in the browser of other users.",
@@ -318,7 +318,7 @@
     },
     {
       "title": "XML Entity Injection vulnerability in template.xxe",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.xxe.html",
       "remediation_steps": "Use encoded input to prevent malicious characters from being injected into the XML entity.",
       "issue_description": "The code uses unsanitized user input directly in an XML entity, making it vulnerable to XML Entity Injection attacks. Attackers can inject malicious XML code into the input field, which can be reflected back and executed within the application.",
@@ -328,7 +328,7 @@
     },
     {
       "title": "Cross Site Scripting (XSS) vulnerabilities",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/vulnerability/xss/xss.go",
       "remediation_steps": "1. Sanitize user input before rendering it in the DOM\n2. Use prepared statements or parameterized queries to prevent SQL injection\n3. Escape user-generated content before displaying it in JavaScript or other client-side contexts",
       "issue_description": "The code is vulnerable to Cross Site Scripting (XSS) due to the improper handling of user-supplied data. Attackers can inject malicious JavaScript code into the application, which can be executed by other users or visitors of the website.",
@@ -338,7 +338,7 @@
     },
     {
       "title": "Insecure Direct Object References Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.idor1.html",
       "remediation_steps": "Update Your Profile to protect the Cookie from unauthorized access",
       "issue_description": "The code uses an Insecure Direct Object References (IDOR) vulnerability in the context of updating user profile information. An attacker could potentially manipulate the request parameters to access or update data associated with other users.",
@@ -348,7 +348,7 @@
     },
     {
       "title": "SQL Injection Vulnerability in template.sqli1",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/templates/template.sqli1.html",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent user input from directly interacting with the SQL code.",
       "issue_description": "The code snippet contains vulnerable SQL injection code where user input is directly concatenated into the SQL query without proper sanitization. This can allow attackers to manipulate the query and potentially access unauthorized data or execute malicious actions.",
@@ -358,7 +358,7 @@
     },
     {
       "title": "Cookie Level Validation Bypass",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/util/cookie.go",
       "remediation_steps": "Validate input before assigning it to the level variable to prevent unauthorized values from bypassing the access control logic.",
       "issue_description": "The code allows an attacker to bypass the access control by sending a request with a custom cookie value of 'high'. This could potentially grant unauthorized users access to high-level resources.",
@@ -368,7 +368,7 @@
     },
     {
       "title": "Vulnerability in getDBMSVersion function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/govwa/setting/setting.go",
       "remediation_steps": "Use prepared statements to mitigate SQL injection vulnerability",
       "issue_description": "The getDBMSVersion function uses a direct string concatenation to retrieve the database version from a SQL query, making it vulnerable to SQL injection attacks.",

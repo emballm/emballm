@@ -8,7 +8,7 @@
   "issues": [
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/libsession.py",
       "remediation_steps": "Use a more secure method for storing and retrieving session data, such as encryption or authentication tokens.",
       "issue_description": "The session data is stored in a cookie without any encryption or authentication measures, making it vulnerable to unauthorized access through cross-site scripting (XSS) or other client-side vulnerabilities.",
@@ -18,7 +18,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability in User Input",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/posts.view.html",
       "remediation_steps": "Encode user-supplied data before displaying it in the output to prevent malicious scripts from being injected.",
       "issue_description": "The code snippet allows attackers to inject malicious JavaScript code into the displayed content through the `post.text` variable. This could potentially lead to Cross-Site Scripting (XSS) attacks.",
@@ -28,7 +28,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/mod_posts.py",
       "remediation_steps": "Use parameterized queries or escape user input before inserting it into SQL statements",
       "issue_description": "The code uses user input directly in the SQL statement, making it vulnerable to SQL injection attacks. An attacker could inject malicious SQL code into the 'text' field, which would be executed by the database.",
@@ -38,7 +38,7 @@
     },
     {
       "title": "Vulnerability in password_set function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/libuser.py",
       "remediation_steps": "Use a different hashing algorithm, such as Argon2 or bcrypt, instead of Scrypt.",
       "issue_description": "The function uses Scrypt for password hashing, which is vulnerable to rainbow table attacks. This allows an attacker to recover the original password from a hash.",
@@ -48,7 +48,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/mfa.enable.html",
       "remediation_steps": "Encode user input before displaying it in the response to prevent malicious code from being injected.",
       "issue_description": "The `{{ secret_url }}` variable is not properly sanitized, allowing an attacker to inject arbitrary JavaScript code into the page through the `otp` input field. This could lead to cross-site scripting attacks.",
@@ -58,7 +58,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/footer.html",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent malicious SQL code from being injected into the database.",
       "issue_description": "The code snippet contains a text input field that is directly concatenated into an SQL query, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the input field, which could compromise the database.",
@@ -68,7 +68,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/posts.view.html",
       "remediation_steps": "Encode user-generated data before displaying it in the HTML output",
       "issue_description": "The code does not properly sanitize user input, which could allow an attacker to inject malicious JavaScript code into the rendered HTML output. This vulnerability is known as Cross-Site Scripting (XSS).",
@@ -78,7 +78,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/libmfa.py",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent SQL injection attacks.",
       "issue_description": "The code uses direct string concatenation to build SQL queries, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the username or otp parameters, leading to unauthorized access or data manipulation.",
@@ -88,7 +88,7 @@
     },
     {
       "title": "Sensitive Password Guessing Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/httpbrute.py",
       "remediation_steps": "Use a more complex password or authentication mechanism that is not vulnerable to brute-force attacks",
       "issue_description": "The code iterates over a list of common passwords and attempts to authenticate with them. If a password is correct, the code prints a message indicating that it has been cracked and breaks out of the loop. This makes it possible for an attacker to discover valid user credentials through simple enumeration.",
@@ -98,7 +98,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/libmfa.py",
       "remediation_steps": "Use parameterized queries to prevent SQL injection attacks.",
       "issue_description": "The code uses direct user input in the SQL query, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code that will be executed on the database server.",
@@ -108,7 +108,7 @@
     },
     {
       "title": "Vulnerability in cryptography library",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/rsa-decrypt.py",
       "remediation_steps": "Upgrade cryptography library to a version that addresses the vulnerability or use a different library that does not have the vulnerability",
       "issue_description": "The code uses a vulnerable version of the cryptography library that is susceptible to a padding oracle attack. An attacker could potentially exploit this vulnerability to recover the private key associated with the provided key file.",
@@ -118,7 +118,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/payloads/keylogger.js",
       "remediation_steps": "Use input validation to prevent malicious code from being injected into the key variable.",
       "issue_description": "The code snippet allows an attacker to inject JavaScript code into the `keys` variable through keyboard input. This malicious code can be executed when the image is loaded from the malicious server, potentially leading to Cross-Site Scripting (XSS) attacks.",
@@ -128,7 +128,7 @@
     },
     {
       "title": "Vulnerability in Public Key Encryption",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/rsa-encrypt.py",
       "remediation_steps": "Use a different padding algorithm or a different encryption algorithm",
       "issue_description": "The code uses OAEP padding with SHA-256, which is vulnerable to the padding oracle attack. This attack can be used to recover the plaintext from the encrypted data.",
@@ -138,7 +138,7 @@
     },
     {
       "title": "Unsafe Script Source Configuration",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/csp.txt",
       "remediation_steps": "Use a trusted source for external scripts or consider using a content security policy (CSP) to restrict the sources of external scripts.",
       "issue_description": "The current configuration allows for the loading of scripts from 'unsafe-inline' and 'none' sources, which poses a significant security risk. Attackers can exploit these vulnerabilities to inject malicious code into the page.",
@@ -148,7 +148,7 @@
     },
     {
       "title": "Vulnerability in Flask API Authentication Schema",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/mod_api.py",
       "remediation_steps": "Update the key_schema and post_schema to use more secure authentication methods, such as hashing passwords or using authentication libraries designed for Flask.",
       "issue_description": "The code is vulnerable to brute-force attacks due to the use of unencrypted and potentially predictable passwords. An attacker could easily guess the username and password combination to gain unauthorized access to the API.",
@@ -158,7 +158,7 @@
     },
     {
       "title": "Vulnerability in crack_cvv function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/crack-cvv.py",
       "remediation_steps": "Use a different hash function or increase the number of attempts to reduce the probability of collision",
       "issue_description": "The code uses a predictable loop to iterate over potential CVV values, making it vulnerable to collision attacks. An attacker can easily discover the correct CVV by iterating over a range of values and comparing the generated hash with the provided digest.",
@@ -168,7 +168,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/payloads/payload.js",
       "remediation_steps": "Use encoded input for the key variable in the URL.",
       "issue_description": "The code snippet is vulnerable to cross-site scripting (XSS) attacks. An attacker could inject malicious JavaScript code into the `keys` variable, which would be reflected in the URL and potentially executed by other users.",
@@ -178,7 +178,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) vulnerability in login form",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/user.login.html",
       "remediation_steps": "Remove the unsanitized user input from the 'username' and 'password' fields before displaying or processing it.",
       "issue_description": "The login form allows an attacker to inject malicious JavaScript code into the 'username' and 'password' fields, which can be reflected back to the browser and executed by the user.",
@@ -188,7 +188,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/csp.html",
       "remediation_steps": "Use encoded data for the `src` attribute of the `<img>` tag and the text content of the `<span>` tag with inline styles.",
       "issue_description": "The code uses unsanitized user input from the `src` attribute of the `<img>` tag and the text content of the `<span>` tag with inline styles, which makes it vulnerable to Cross-Site Scripting (XSS) attacks.",
@@ -198,7 +198,7 @@
     },
     {
       "title": "Password Guessing Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/brute.py",
       "remediation_steps": "Consider implementing rate limiting or other authentication mechanisms to prevent brute-force attacks.",
       "issue_description": "The code uses a hardcoded list of passwords which can be easily enumerated and used for unauthorized access",
@@ -208,7 +208,7 @@
     },
     {
       "title": "Vulnerability in key generation code",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/rsa-keygen.py",
       "remediation_steps": "Use a different key generation algorithm or increase the key size",
       "issue_description": "The code uses the RSA key generation algorithm with a public exponent of 65537, which is known to be vulnerable to certain attacks. Additionally, the key size of 2048 bits is considered too small for modern security requirements.",
@@ -218,7 +218,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/navbar.html",
       "remediation_steps": "Remove the inline JavaScript code containing user input from the HTML page.",
       "issue_description": "The `{% if g.session.username %}` condition allows an attacker to inject JavaScript code into the rendered HTML, potentially leading to Cross-Site Scripting (XSS).",
@@ -228,7 +228,7 @@
     },
     {
       "title": "Vulnerable to Password Guessing",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/scrypt-verify.py",
       "remediation_steps": "Implement rate limiting and consider using a different key derivation function",
       "issue_description": "The code uses a vulnerable key derivation function (Scrypt) with a low iteration count, making it susceptible to password guessing attacks. An attacker could potentially guess the password within a reasonable amount of time.",
@@ -238,7 +238,7 @@
     },
     {
       "title": "Vulnerability in scrypt_generate function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/scrypt-generate.py",
       "remediation_steps": "Upgrade cryptography library to address vulnerability in Scrypt algorithm.",
       "issue_description": "The code uses Scrypt algorithm with insufficient parameters, making it vulnerable to rainbow table attacks. Attackers can precompute rainbow tables for the specific parameters used in the code, allowing them to recover the key from a known plaintext.",
@@ -248,7 +248,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/mod_welcome1.py",
       "remediation_steps": "Use parameterized queries or escape user input to prevent malicious SQL statements from being injected into the database request.",
       "issue_description": "The code uses user input directly in the SQL query, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the `text` field, which would be executed by the database.",
@@ -258,7 +258,7 @@
     },
     {
       "title": "Template Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/mod_hello.py",
       "remediation_steps": "Use Flask's render_template function with safe=True argument or escape user input.",
       "issue_description": "The code uses a string directly as input to the render_template function without any sanitization or escaping. This makes it vulnerable to template injection attacks.",
@@ -268,7 +268,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/libapi.py",
       "remediation_steps": "Move the API key generation and storage logic to a secure location outside of the web server's reach. Consider using a key management system or secure environment variables.",
       "issue_description": "The code stores the generated API key in an insecure location on the '/tmp/' directory, which is accessible to any user with access to the web server. This poses a risk of unauthorized access to the key and potential compromise of the system.",
@@ -278,7 +278,7 @@
     },
     {
       "title": "Vulnerability in Private Key Generation",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/ca-create.py",
       "remediation_steps": "Use a different key generation algorithm or increase the key size",
       "issue_description": "The code uses RSA with a public exponent of 65537, which is not suitable for modern cryptography due to its vulnerability to certain attacks. Additionally, the key size of 2048 bits is considered too small for secure encryption.",
@@ -288,7 +288,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/user.chpasswd.html",
       "remediation_steps": "Use input sanitization techniques to prevent malicious code from being injected into the form.",
       "issue_description": "The form allows users to input text directly into the HTML page without any validation or sanitization. This could potentially allow an attacker to inject malicious JavaScript code into the page, which could be used for cross-site scripting (XSS).",
@@ -298,7 +298,7 @@
     },
     {
       "title": "Cryptographic Key Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/scrypt-crack.py",
       "remediation_steps": "Use a different and more secure key generation algorithm or consider increasing the key length.",
       "issue_description": "The code uses the Scrypt key derivation function with a static salt and a low iteration count, making it vulnerable to rainbow table attacks.",
@@ -308,7 +308,7 @@
     },
     {
       "title": "Sensitive Data Exposure in API Key Storage",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/api_post.py",
       "remediation_steps": "Store API keys in a secure location, such as a key management system or environment variables.",
       "issue_description": "The API key is stored in a plain text file at `/tmp/supersecret.txt`, which is not a secure location. This makes it vulnerable to unauthorized access.",
@@ -318,7 +318,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/head.html",
       "remediation_steps": "Use input sanitization techniques to prevent malicious code from being injected into the application.",
       "issue_description": "The code does not sanitize user input before displaying it in the rendered HTML output, making it vulnerable to Cross-Site Scripting (XSS) attacks.",
@@ -328,7 +328,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/payloads/cookie.js",
       "remediation_steps": "Use a secure image source or encode user input before displaying it in the URL",
       "issue_description": "The code snippet fetches an image from a URL that includes the document.cookie value. This allows an attacker to inject malicious JavaScript code into the cookie value, which can be executed when the image is loaded.",
@@ -338,7 +338,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/mfa.enable.html",
       "remediation_steps": "Remove the {{ secret_url }} variable from the rendered HTML and store it securely in the backend.",
       "issue_description": "The `{{ secret_url }}` variable is displayed in the rendered HTML, potentially exposing sensitive data to malicious users.",
@@ -348,7 +348,7 @@
     },
     {
       "title": "Hardcoded Credentials",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/footer.html",
       "remediation_steps": "Store sensitive data in environment variables or use authentication mechanisms with credentials",
       "issue_description": "The code directly embeds credentials in the HTML footer, making them accessible to anyone who can view the source code. This poses a significant security risk as malicious actors can easily obtain these credentials and gain unauthorized access to sensitive data or systems.",
@@ -358,7 +358,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/messages.html",
       "remediation_steps": "Use prepared statements or encode user input before displaying it in the output",
       "issue_description": "The code directly displays user input `message` without proper sanitization, allowing an attacker to inject malicious JavaScript code into the displayed message.",
@@ -368,7 +368,7 @@
     },
     {
       "title": "Unsanitized Input in Hash Function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/crack-hash.py",
       "remediation_steps": "Use a salt or other random value to prevent collision attacks",
       "issue_description": "The code snippet uses the input 'algorithm' directly in the hash function, making it vulnerable to collision attacks. An attacker can provide a crafted 'algorithm' value that allows them to find a collision for the input 'number'. This could potentially allow an attacker to forge a password or compromise the integrity of the system.",
@@ -378,7 +378,7 @@
     },
     {
       "title": "AES Decryption Key Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/aes-decrypt.py",
       "remediation_steps": "Store the decryption key in a secure location, such as a key management system or environment variable.",
       "issue_description": "The decryption key is hardcoded in the source code, making it vulnerable to unauthorized access or compromise.",
@@ -388,7 +388,7 @@
     },
     {
       "title": "CSRF vulnerability in Flask application",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/mod_user.py",
       "remediation_steps": "Implement CSRF protection measures such as using flask-wtf or another CSRF protection library.",
       "issue_description": "The code snippet does not implement any CSRF protection measures, making it vulnerable to attackers who can submit malicious forms.",
@@ -398,7 +398,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) vulnerability in user input handling",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/welcome.html",
       "remediation_steps": "Encode user input before displaying it in the HTML output to prevent malicious scripts from being injected.",
       "issue_description": "The code snippet allows attackers to inject arbitrary JavaScript code into the HTML output by manipulating the 'text' field in the form. This could lead to Cross-Site Scripting (XSS) vulnerabilities.",
@@ -408,7 +408,7 @@
     },
     {
       "title": "Vulnerabilities Found in Vulpy Web Application",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/README.rst",
       "remediation_steps": "Please refer to the report for specific remediation steps.",
       "issue_description": "Multiple security vulnerabilities were identified in the 'BAD' version of Vulpy web application.",
@@ -418,7 +418,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/head.html",
       "remediation_steps": "Encode all user-generated content before displaying it to prevent malicious scripts from being injected",
       "issue_description": "The application does not properly sanitize user input, which allows an attacker to inject malicious JavaScript code into the displayed content. This vulnerability could allow an attacker to execute arbitrary code in the browser of other users.",
@@ -428,7 +428,7 @@
     },
     {
       "title": "Template Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/mod_hello.py",
       "remediation_steps": "Use Flask's built-in escape() function to prevent user-supplied data from being directly rendered into the template.",
       "issue_description": "The code snippet is vulnerable to template injection attacks. An malicious user could supply malicious data that gets directly rendered into the template, potentially compromising the application.",
@@ -438,7 +438,7 @@
     },
     {
       "title": "Sensitive Information Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/vulpy-ssl.py",
       "remediation_steps": "Review and restrict access to sensitive data.",
       "issue_description": "The application uses a secret key as a configuration value. This secret key is not encrypted or stored securely, making it vulnerable to unauthorized access.",
@@ -448,7 +448,7 @@
     },
     {
       "title": "Vulnerable Flask Application",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/mod_csp.py",
       "remediation_steps": "Upgrade Flask to version 2.3.0 or later, which includes a fix for the cross-site policy bypass vulnerability.",
       "issue_description": "The code uses `render_template` function without specifying a safe context, making it vulnerable to cross-site policy bypass attacks.",
@@ -458,7 +458,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/luncheck.py",
       "remediation_steps": "Consider using a more secure method of handling sensitive data, such as encryption or tokenization.",
       "issue_description": "The function checks the validity of credit card numbers using the Luhn checksum algorithm. However, the source code directly exposes the credit card number in plain text, increasing the risk of data breaches.",
@@ -468,7 +468,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/messages.html",
       "remediation_steps": "Use input sanitization techniques to prevent malicious code from being injected into the rendered output.",
       "issue_description": "The code snippet fails to sanitize user-supplied input before displaying it within the HTML output, making it vulnerable to Cross-Site Scripting (XSS) attacks. An attacker could potentially inject malicious JavaScript code into the input, which would be reflected back to the browser and executed by the victim.",
@@ -478,7 +478,7 @@
     },
     {
       "title": "Sensitive Key Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/fernet-generate-key.py",
       "remediation_steps": "Store the key in a secure location, such as a key vault or environment variable.",
       "issue_description": "The key is generated and directly printed, making it vulnerable to anyone with access to the console output. This could lead to unauthorized access to encrypted data.",
@@ -488,7 +488,7 @@
     },
     {
       "title": "APT package vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/install-on-kali.sh",
       "remediation_steps": "Upgrade the packages to their latest versions or remove them if not in use.",
       "issue_description": "Multiple packages have vulnerabilities in their dependencies, which could be exploited by attackers to gain unauthorized access to the system.",
@@ -498,7 +498,7 @@
     },
     {
       "title": "Sensitive Information Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/vulpy-ssl.py",
       "remediation_steps": "Change the value of 'SECRET_KEY' environment variable to a more secure value and restrict access to the file containing the key.",
       "issue_description": "The application uses a hardcoded value for the 'SECRET_KEY' environment variable, which is exposed in the code. This could allow an attacker to gain unauthorized access to sensitive data.",
@@ -508,7 +508,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/csp.html",
       "remediation_steps": "Remove or encode sensitive data before displaying it in the response",
       "issue_description": "The code allows an attacker to inject malicious JavaScript code into the `src` attribute of an `<img>` tag using the `src` attribute, potentially leading to cross-site scripting vulnerabilities.",
@@ -518,7 +518,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS)",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/payloads/cookie.js",
       "remediation_steps": "Use a secure image source or encode user input before displaying it in the URL",
       "issue_description": "The code snippet fetches an image from a URL that includes a malicious query parameter containing the value of the `document.cookie` variable. This allows an attacker to inject arbitrary JavaScript code into the page, potentially compromising the session or performing unauthorized actions.",
@@ -528,7 +528,7 @@
     },
     {
       "title": "AES Encryption Key Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/aes-encrypt.py",
       "remediation_steps": "Store the encryption key securely in a key management system or environment variable.",
       "issue_description": "The encryption key is directly passed as an argument to the `aes_encrypt` function, making it vulnerable to unauthorized access through command-line arguments. An attacker could potentially intercept these arguments and compromise the confidentiality of the encrypted data.",
@@ -538,7 +538,7 @@
     },
     {
       "title": "Vulnerable Public Key Verification",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/rsa-verify.py",
       "remediation_steps": "Upgrade cryptography library to version 3.5.2 or later.",
       "issue_description": "The code uses an outdated version of the cryptography library, which is vulnerable to signature forgery attacks. Attackers can forge signatures that will be verified as valid by the code.",
@@ -548,7 +548,7 @@
     },
     {
       "title": "Sensitive Information Disclosure Through Credentials",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/httpbrute.py",
       "remediation_steps": "Store credentials securely using environment variables or other secure mechanisms. Avoid hardcoding credentials in code.",
       "issue_description": "The code uses plain-text credentials for authentication, making them vulnerable to brute-force attacks. An attacker could easily discover the credentials and gain unauthorized access to the system.",
@@ -558,7 +558,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS)",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/payloads/payload.js",
       "remediation_steps": "Use encoded input or a secure method for handling user input.",
       "issue_description": "The code snippet allows an attacker to inject malicious JavaScript code into the `keys` variable through keyboard input. This vulnerable code is sent to the server through an insecure `Image` object request.",
@@ -568,7 +568,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS)",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/user.chpasswd.html",
       "remediation_steps": "Use input sanitization techniques to prevent malicious scripts from being injected into the form.",
       "issue_description": "The form allows users to submit arbitrary values for the password and password_again fields, which could potentially contain malicious JavaScript code that will be executed in the browser.",
@@ -578,7 +578,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/libsession.py",
       "remediation_steps": "Store sensitive data in encrypted form or limit access to authorized users only",
       "issue_description": "The code uses a Fernet encryption key in the clear, which makes it vulnerable to attackers who can intercept the cookie data. This could potentially allow an attacker to decrypt and access sensitive user data.",
@@ -588,7 +588,7 @@
     },
     {
       "title": "SQL Injection in Login Form",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/user.login.mfa.html",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent user input from directly being inserted into SQL commands.",
       "issue_description": "The 'password' field in the login form allows users to input arbitrary text, which could potentially lead to SQL injection vulnerabilities. An attacker could supply malicious SQL code in the 'password' field, which would be executed on the database server.",
@@ -598,7 +598,7 @@
     },
     {
       "title": "Sensitive Data Exposure in SQLite Database Initialization",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/db_init.py",
       "remediation_steps": "Store sensitive data in a secure location outside of the database, such as a key management system or encrypted storage.",
       "issue_description": "The code snippet exposes sensitive user data (username and password) directly in the SQLite database during initialization. This information could be potentially compromised if the database file is compromised.",
@@ -608,7 +608,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/mod_mfa.py",
       "remediation_steps": "Use parameterized queries or escape user-supplied values to prevent SQL injection attacks.",
       "issue_description": "The code uses user-supplied input directly in an SQL statement without any validation or sanitization, making it vulnerable to SQL injection attacks. An attacker could inject malicious SQL code into the input, compromising the integrity or confidentiality of the database.",
@@ -618,7 +618,7 @@
     },
     {
       "title": "Regular Expression Denial of Service Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/cutpasswd.py",
       "remediation_steps": "Use a more complex regular expression pattern that includes a wider range of characters and limits the number of iterations allowed.",
       "issue_description": "The regular expression pattern used in the code is too simple and can be easily exploited by an attacker who can provide a password that matches the pattern.",
@@ -628,7 +628,7 @@
     },
     {
       "title": "Cryptographic Hash Function Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/hashfile.py",
       "remediation_steps": "Upgrade to a more secure hash function like SHA-3 or Blake2.",
       "issue_description": "The use of SHA-512 is vulnerable to collision attacks, which could potentially allow an attacker to create two different files with the same SHA-512 hash.",
@@ -638,7 +638,7 @@
     },
     {
       "title": "Potential Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/mod_csp.py",
       "remediation_steps": "Implement appropriate Content Security Policy (CSP) headers to prevent unauthorized JavaScript execution.",
       "issue_description": "The `render_template` function in Flask allows for user-generated content to be rendered without proper sanitization, potentially leading to Cross-Site Scripting (XSS) vulnerabilities. Attackers could inject malicious JavaScript code into the rendered HTML output.",
@@ -648,7 +648,7 @@
     },
     {
       "title": "Sensitive Password File Download Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/generate_bad_passwords.py",
       "remediation_steps": "Do not download or store sensitive password files directly from third-party sources.",
       "issue_description": "The code downloads a file containing a list of 1 million commonly used passwords from a GitHub repository. This poses a significant risk of exposing sensitive credentials.",
@@ -658,7 +658,7 @@
     },
     {
       "title": "Hash Collision Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/skey.py",
       "remediation_steps": "Use a different hash function or increase the key size to reduce the probability of collisions.",
       "issue_description": "The code uses SHA1 as the hash function, which is vulnerable to collision attacks. This means that an attacker can create two different inputs that produce the same hash value, potentially compromising the authentication or authorization system.",
@@ -668,7 +668,7 @@
     },
     {
       "title": "Flask Application Vulnerability - Insecure Session Management",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/vulpy.py",
       "remediation_steps": "Implement stronger session management by using a secure and unpredictable session cookie.",
       "issue_description": "The Flask application uses a default, predictable session cookie, which can be easily exploited by an attacker to hijack user sessions.",
@@ -678,7 +678,7 @@
     },
     {
       "title": "Mixed 'self' and 'unsafe-inline' source origins",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/csp.txt",
       "remediation_steps": "Use 'strict-dynamic' mode or remove 'unsafe-inline' sources",
       "issue_description": "Mixing 'self' and 'unsafe-inline' source origins weakens CSP and allows potential code injection attacks.",
@@ -688,7 +688,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/LICENSE",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent user input from directly being injected into SQL statements.",
       "issue_description": "The code allows users to input data directly into SQL queries, making it vulnerable to SQL injection attacks. An attacker could inject malicious SQL code into the input, which could compromise the integrity or confidentiality of the database.",
@@ -698,7 +698,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/libuser.py",
       "remediation_steps": "Use parameterized queries or escape user input to prevent SQL injection attacks.",
       "issue_description": "The code uses string concatenation to build SQL queries, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the username or password fields, compromising the database.",
@@ -708,7 +708,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/navbar.html",
       "remediation_steps": "Encode user-generated content appropriately to prevent malicious scripts from being injected into the HTML output.",
       "issue_description": "The code snippet uses user input directly without proper sanitization, making it vulnerable to Cross-Site Scripting (XSS) attacks. An attacker could inject malicious JavaScript code into the input, which would be reflected back to the browser and potentially executed by other users.",
@@ -718,7 +718,7 @@
     },
     {
       "title": "Vulnerable Private Key Signing",
-      "severity": "Critical",
+      "severity": 9.5,
       "file_name": "scratch/harness/utils/rsa-sign.py",
       "remediation_steps": "Use a different key generation algorithm or consider using a hardware security module (HSM) for key storage.",
       "issue_description": "The code uses the default key generation algorithm, which is vulnerable to collision attacks. This allows an attacker to forge digital signatures.",
@@ -728,7 +728,7 @@
     },
     {
       "title": "Vulnerability in requests Library",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/api_list.py",
       "remediation_steps": "Upgrade requests library to version 2.28.1 or later.",
       "issue_description": "The requests library is vulnerable to a remote code execution vulnerability due to a critical bug in the urllib3 library. Attackers can exploit this vulnerability to execute arbitrary code on the server.",
@@ -738,7 +738,7 @@
     },
     {
       "title": "Vulnerability in cryptography library",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/ca-csr-create.py",
       "remediation_steps": "Upgrade cryptography library to a newer version that fixes the vulnerability",
       "issue_description": "The code uses the cryptography library which has a vulnerability that allows an attacker to forge digital signatures. This could lead to attackers being able to authenticate as legitimate users or tamper with data.",
@@ -748,7 +748,7 @@
     },
     {
       "title": "Vulnerability in cryptography library",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/ca-csr-load.py",
       "remediation_steps": "Upgrade cryptography library to a version that fixes the vulnerability",
       "issue_description": "The code uses an older version of the cryptography library which contains a vulnerability that could allow an attacker to perform man-in-the-middle attacks.",
@@ -758,7 +758,7 @@
     },
     {
       "title": "HMAC Signature Generation Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/utils/hmac_generate.py",
       "remediation_steps": "Use a different hash function that is not vulnerable to collision attacks.",
       "issue_description": "The code uses HMAC with SHA-256, which is vulnerable to collision attacks. This means that an attacker can create two different messages that have the same HMAC signature as the original message.",
@@ -768,7 +768,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/mod_user.py",
       "remediation_steps": "Use prepared statements or parameterized queries to mitigate SQL injection attacks.",
       "issue_description": "The code uses user-supplied input directly in an SQL query, making it vulnerable to SQL injection attacks. An attacker could manipulate the input to execute malicious SQL code.",
@@ -778,7 +778,7 @@
     },
     {
       "title": "Flask application vulnerability: Sensitive data exposure due to missing CSP header",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/vulpy.py",
       "remediation_steps": "Implement a Content-Security-Policy (CSP) header in the Flask application to mitigate the risk of cross-site scripting (XSS) attacks.",
       "issue_description": "The Flask application does not have a Content-Security-Policy (CSP) header defined in the application code. This makes it vulnerable to cross-site scripting (XSS) attacks, as malicious users can inject arbitrary JavaScript code into the application's output.",
@@ -788,7 +788,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) vulnerability in user input handling",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/welcome.html",
       "remediation_steps": "Sanitize user input before displaying it in the output to prevent malicious code injection.",
       "issue_description": "The application displays user-submitted text without proper sanitization, making it vulnerable to cross-site scripting (XSS) attacks. An attacker could inject malicious JavaScript code into the input field, which would be reflected back to the browser and potentially executed by other users.",
@@ -798,7 +798,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/mfa.disable.html",
       "remediation_steps": "Remove the direct user input from the link text",
       "issue_description": "The provided code displays user input directly within the link text, making it vulnerable to Cross-Site Scripting (XSS) attacks. Attackers can inject malicious JavaScript code into the input, which will be reflected back and executed in the browser of other users.",
@@ -808,7 +808,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/templates/user.create.html",
       "remediation_steps": "Implement input validation to prevent malicious data from being submitted.",
       "issue_description": "The form allows users to submit sensitive data such as username, email, and password without proper input validation. This could potentially expose this data to unauthorized individuals.",
@@ -818,7 +818,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/user.login.mfa.html",
       "remediation_steps": "Restrict data access to authorized users only and implement strong authentication measures.",
       "issue_description": "The login form collects sensitive user data, including username, password, and OTP (if enabled), without implementing adequate security measures. This makes the application vulnerable to data breaches or unauthorized access.",
@@ -828,7 +828,7 @@
     },
     {
       "title": "SQL Injection Vulnerability in Login Form",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/user.login.html",
       "remediation_steps": "Use prepared statements or parameterized queries to mitigate SQL injection attacks.",
       "issue_description": "The form allows users to input data directly into the SQL query, making it vulnerable to SQL injection attacks. Attackers can inject malicious SQL code into the username or password fields to gain unauthorized access to the database.",
@@ -838,7 +838,7 @@
     },
     {
       "title": "Sensitive Keylogging Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/payloads/keylogger.js",
       "remediation_steps": "Avoid sending sensitive keystrokes to remote servers or implement proper input validation and sanitization techniques.",
       "issue_description": "The code snippet implements a keylogger that transmits each keystroke to a remote server at 'http://127.0.0.1:8000/keys'. This poses a significant risk as an attacker could intercept these keystrokes and steal sensitive information such as login credentials or personal data.",
@@ -848,7 +848,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/mod_posts.py",
       "remediation_steps": "Use parameterized queries to prevent user input from directly being concatenated into SQL statements.",
       "issue_description": "The code snippet uses user input directly in an SQL statement without proper sanitization, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the `text` field, which would be executed by the database.",
@@ -858,7 +858,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/libposts.py",
       "remediation_steps": "Use parameterized queries to prevent user input from directly entering the SQL query.",
       "issue_description": "The code uses user input directly in the SQL query, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the username or text fields, compromising the database.",
@@ -868,7 +868,7 @@
     },
     {
       "title": "JWT Authentication Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/good/libapi.py",
       "remediation_steps": "Use shorter expiration time for JWT tokens",
       "issue_description": "The JWT token is valid for 1 minute, which increases the risk of an attacker exploiting the vulnerability before it expires. An attacker could potentially hijack a valid token and impersonate a legitimate user.",
@@ -878,7 +878,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) vulnerability in form input",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/bad/templates/user.create.html",
       "remediation_steps": "Use input sanitization techniques to filter out malicious code from user input.",
       "issue_description": "The form input element for 'password' allows users to submit arbitrary JavaScript code, which can be executed by the server-side and potentially compromise the application.",

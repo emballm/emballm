@@ -8,7 +8,7 @@
   "issues": [
     {
       "title": "Unsanitized User Input Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/data/contributions-dao.js",
       "remediation_steps": "Validate and sanitize user-supplied input before inserting it into database queries to prevent SQL injection attacks.",
       "issue_description": "The code uses the `userId` variable directly in the MongoDB query without any validation or sanitization. This makes it vulnerable to SQL injection attacks if malicious users can control the value of `userId`.",
@@ -18,7 +18,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability in Panel Title",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/dashboard.html",
       "remediation_steps": "Escape user-generated content before displaying it in the panel title to prevent malicious scripts from being injected.",
       "issue_description": "The panel title is directly displaying user input without any validation or sanitization. This allows an attacker to inject malicious JavaScript code into the title, which can be executed by other users.",
@@ -28,7 +28,7 @@
     },
     {
       "title": "",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/nodemon.json",
       "remediation_steps": "",
       "issue_description": "",
@@ -38,7 +38,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/data/research-dao.js",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent malicious SQL code from being injected into the database request.",
       "issue_description": "The `getBySymbol` function allows an attacker to inject SQL code into the `symbol` parameter, potentially compromising the database. An attacker could supply malicious SQL code in the `symbol` parameter, which would be executed by the database engine.",
@@ -48,7 +48,7 @@
     },
     {
       "title": "Vulnerability in MongoDB Collection Insert Many",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/artifacts/db-reset.js",
       "remediation_steps": "Use bulk inserts instead of inserting documents one at a time to prevent potential performance issues.",
       "issue_description": "The code snippet uses the insertMany() method to insert multiple documents into the 'users' collection. This can be vulnerable to performance bottlenecks when dealing with large datasets. Inserting documents one at a time is more efficient for smaller datasets but can become significantly slower as the size of the dataset increases.",
@@ -58,7 +58,7 @@
     },
     {
       "title": "Underscore Import Vulnerability",
-      "severity": "Medium",
+      "severity": 5.5,
       "file_name": "scratch/harness/config/config.js",
       "remediation_steps": "Upgrade underscore to version 2.0.0 or later",
       "issue_description": "Underscore versions prior to 2.0.0 have a vulnerability that could allow an attacker to inject malicious code into the application.",
@@ -68,7 +68,7 @@
     },
     {
       "title": "Password Storage Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/data/user-dao.js",
       "remediation_steps": "Store passwords using one-way encryption with salt hashing. The current implementation is vulnerable to rainbow table attacks.",
       "issue_description": "The code stores passwords in plain text, making them vulnerable to unauthorized access in the event of a security breach. This vulnerability is known as 'A2-1 - Broken Auth'.",
@@ -78,7 +78,7 @@
     },
     {
       "title": "Potential Cross-Site Request Forgery (SSRF) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/integration/tutorial_spec.js",
       "remediation_steps": "Implement appropriate input validation and sanitization measures to prevent unauthorized data from being injected into URL paths.",
       "issue_description": "The code lacks sufficient input validation for URL paths, making it possible for malicious users to inject arbitrary values that could lead to Cross-Site Request Forgery (SSRF) attacks.",
@@ -88,7 +88,7 @@
     },
     {
       "title": "Cypress: Insecure URL Handling in Logout Functionality",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/integration/logout_spec.js",
       "remediation_steps": "Use absolute URLs or route guards to ensure proper navigation handling",
       "issue_description": "The code uses relative URLs in the `cy.visitPage()` command, which can potentially lead to insecure navigation. If an attacker can manipulate the URL, they can bypass authentication or access unauthorized pages.",
@@ -98,7 +98,7 @@
     },
     {
       "title": "Use of unsanitized input in router.get handler",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/routes/tutorial.js",
       "remediation_steps": "Sanitize the page variable before it is used in the router.get handler to prevent malicious values from being injected into the request",
       "issue_description": "The code is vulnerable to cross-site scripting (XSS) attacks because it does not sanitize the `page` variable before using it in the route handler. An attacker could potentially inject malicious JavaScript code into the `page` parameter, which would be reflected back to the client and executed in the browser.",
@@ -108,7 +108,7 @@
     },
     {
       "title": "Missing vulnerability mitigation strategies",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/config/env/production.js",
       "remediation_steps": "Define mitigation strategies to address potential exploits associated with the vulnerability",
       "issue_description": "The code does not implement any mitigation strategies to address potential exploits that could compromise the integrity or confidentiality of the software.",
@@ -118,7 +118,7 @@
     },
     {
       "title": "Use of deprecated 'Morris' library",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/assets/js/chart/chart-data-morris.js",
       "remediation_steps": "Upgrade 'Morris' library to a supported version or consider using a different data visualization library",
       "issue_description": "The code uses the 'Morris' library, which is considered deprecated. Deprecated libraries may contain security vulnerabilities and are no longer receiving updates. This vulnerability could allow an attacker to exploit the outdated code and compromise the system.",
@@ -128,7 +128,7 @@
     },
     {
       "title": "Insecure Redirect Vulnerability",
-      "severity": "Medium",
+      "severity": 5.5,
       "file_name": "scratch/harness/app/routes/index.js",
       "remediation_steps": "Use a more secure method for handling redirects, such as redirecting based on the route or using the res.redirect() method with a specific URL.",
       "issue_description": "The code uses an insecure method to handle redirects by taking the redirect URL from the query string. This makes it vulnerable to malicious actors who could manipulate the URL and redirect users to malicious websites.",
@@ -138,7 +138,7 @@
     },
     {
       "title": "Cypress code vulnerabilities",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/integration/login_spec.js",
       "remediation_steps": "Please refer to the Cypress documentation for guidance on securing your tests.",
       "issue_description": "The code above uses the `cy.fixture()` command to load sensitive user credentials from the `users/admin.` and `users/user.` files. This approach poses a significant security risk as the credentials are stored in plain text and can be easily compromised. Attackers could potentially intercept these credentials and gain unauthorized access to the application.",
@@ -148,7 +148,7 @@
     },
     {
       "title": "Globally enabling 'allowJs' can introduce XSS vulnerabilities",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/tsconfig.json",
       "remediation_steps": "Set 'allowJs' to 'false' in the compilerOptions",
       "issue_description": "Enabling 'allowJs' allows the execution of untrusted JavaScript code, which can lead to cross-site scripting (XSS) vulnerabilities. Attackers can exploit this vulnerability by injecting malicious JavaScript code into the application.",
@@ -158,7 +158,7 @@
     },
     {
       "title": "Sensitive Information Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/config/env/test.js",
       "remediation_steps": "Store credentials securely using environment variables or other secure storage mechanisms.",
       "issue_description": "The code snippet exposes sensitive information such as the Zap API key directly in the source code. This information could be accessed by unauthorized individuals or attackers, compromising the security of the application.",
@@ -168,7 +168,7 @@
     },
     {
       "title": "Vulnerability Report",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/.jshintignore",
       "remediation_steps": "",
       "issue_description": "",
@@ -178,7 +178,7 @@
     },
     {
       "title": "Vulnerable Error Handling Middleware",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/routes/error.js",
       "remediation_steps": "Upgrade Express to version 4.18.1 or later",
       "issue_description": "The code uses an outdated version of Express which contains a vulnerability that allows for remote code execution. An attacker could exploit this vulnerability by sending a malicious request to the server.",
@@ -188,7 +188,7 @@
     },
     {
       "title": "Missing dependency for Cypress",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/.travis.yml",
       "remediation_steps": "Install the cypress dependency using npm install cypress --save-dev",
       "issue_description": "The code uses Cypress but does not have it listed as a dependency in the package. file. This can lead to vulnerabilities as the dependencies are not tracked or updated.",
@@ -198,7 +198,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/data/profile-dao.js",
       "remediation_steps": "Store sensitive data such as SSN and DOB in encrypted format using a secure encryption algorithm.",
       "issue_description": "The code exposes sensitive personally identifiable information (PII) such as SSN and DOB in plaintext, making it vulnerable to unauthorized access and compromise.",
@@ -208,7 +208,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/routes/memos.js",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent malicious SQL code from being injected into the database.",
       "issue_description": "The code uses user-supplied input directly in the SQL query, making it vulnerable to SQL injection attacks. An attacker could supply malicious SQL code in the `req.body.memo` field, which would be executed on the database.",
@@ -218,7 +218,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/data/allocations-dao.js",
       "remediation_steps": "Escape the threshold parameter properly to prevent SQL Injection attacks.",
       "issue_description": "The 'getByUserIdAndThreshold' method is vulnerable to SQL Injection due to the way the 'threshold' parameter is directly concatenated into the NoSQL query. An attacker can inject malicious SQL code into the 'threshold' parameter to gain unauthorized access to sensitive data.",
@@ -228,7 +228,7 @@
     },
     {
       "title": "SSL Certificate Heartbleed Vulnerability",
-      "severity": "Critical",
+      "severity": 9.5,
       "file_name": "scratch/harness/artifacts/cert/server.crt",
       "remediation_steps": "Update the SSL certificate to a version that does not contain the vulnerability",
       "issue_description": "The Heartbleed vulnerability allows an attacker to extract sensitive information from a vulnerable SSL connection. Attackers can use this vulnerability to obtain sensitive data from websites that use SSL to encrypt their traffic. This vulnerability has been exploited in several attacks, including the Heartbleed bug in OpenSSL.",
@@ -238,7 +238,7 @@
     },
     {
       "title": "SQL Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/data/benefits-dao.js",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent user-supplied data from directly being inserted into SQL queries.",
       "issue_description": "The code allows users to directly input data into the SQL query using the `usersCol.update` method. This makes it vulnerable to SQL injection attacks, as malicious users can supply malicious SQL code that will be executed on the database.",
@@ -248,7 +248,7 @@
     },
     {
       "title": "Insecure Direct Object References",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/tutorial/a4.html",
       "remediation_steps": "Check access for all direct object references from an untrusted source. Use per user or session indirect object references. Test and analyze code for such vulnerabilities.",
       "issue_description": "Direct object references occur when a developer exposes a reference to an internal implementation object. Without an access control check or other protection, attackers can manipulate these references to access unauthorized data.",
@@ -258,7 +258,7 @@
     },
     {
       "title": "Unsanitized Input Handling in Express",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/package.json",
       "remediation_steps": "Validate and sanitize user input before it is used in database queries or other sensitive operations.",
       "issue_description": "The application does not validate or sanitize user input before it is used in database queries, which could allow an attacker to inject malicious SQL code into the queries, leading to data manipulation or unauthorized access.",
@@ -268,7 +268,7 @@
     },
     {
       "title": "Potential Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/allocations.html",
       "remediation_steps": "Escape user-supplied data before displaying it in the rendered HTML output. Consider using HTML encoding or sanitization libraries.",
       "issue_description": "The code snippet allows an attacker to inject malicious JavaScript code into the displayed output by manipulating the value of the `threshold` input field. This could potentially lead to Cross-Site Scripting (XSS) attacks.",
@@ -278,7 +278,7 @@
     },
     {
       "title": "Environment Variable Exposure Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app.json",
       "remediation_steps": "Move sensitive environment variables to a process environment or secrets management tool.",
       "issue_description": "The 'MONGODB_URI' environment variable is publicly accessible in the code, potentially exposing sensitive database connection information.",
@@ -288,7 +288,7 @@
     },
     {
       "title": "A4 Insecure Direct Object Reference (IDOR)",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/routes/allocations.js",
       "remediation_steps": "Take user ID from session instead of from URL param",
       "issue_description": "The code directly uses the `userId` parameter from the URL in the `getByUserIdAndThreshold` function, making it vulnerable to unauthorized users changing the ID in the URL and accessing data of other users.",
@@ -298,7 +298,7 @@
     },
     {
       "title": "Vulnerable Code in Redirects Tour",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/assets/js/tour/redirects-steps.js",
       "remediation_steps": "Update the code to remove the vulnerability from the 'redirectsTour' object or implement security measures to mitigate the risk of unauthorized access.",
       "issue_description": "The code provided contains a vulnerability in the 'redirectsTour' object where it is not validating or sanitizing user input, making it possible for an attacker to inject malicious code into the 'title' or 'content' fields of the 'redirectsTour.addSteps' method. This could allow an attacker to bypass security measures and access unauthorized content.",
@@ -308,7 +308,7 @@
     },
     {
       "title": "Sensitive Data Exposure Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/tutorial/a6.html",
       "remediation_steps": "Use HTTPS protocol, encrypt sensitive data, remove unnecessary data storage",
       "issue_description": "The application uses HTTP connection and stores sensitive data in plain text, making it vulnerable to data breaches through man-in-the-middle attacks or compromised server. This could potentially expose sensitive data such as credit cards, tax IDs, authentication credentials.",
@@ -318,7 +318,7 @@
     },
     {
       "title": "Vulnerability in Contributor Covenant Code of Conduct",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/CODE_OF_CONDUCT.md",
       "remediation_steps": "Update the code to remove potentially discriminatory or harassing language.",
       "issue_description": "The code contains language that could be interpreted as discriminatory or harassing. This could create an unsafe and unwelcoming environment for some contributors.",
@@ -328,7 +328,7 @@
     },
     {
       "title": "Cypress: Insecure Input Handling in Table Data Modification",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/integration/benefits_spec.js",
       "remediation_steps": "Validate input data before updating table records to prevent unauthorized or malicious data injection.",
       "issue_description": "The code allows users to modify table data by entering values directly into input fields without any input validation. This could potentially allow an attacker to inject malicious data into the database, compromising data integrity.",
@@ -338,7 +338,7 @@
     },
     {
       "title": "Sensitive Data Exposure in Environment Variables",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/config/env/all.js",
       "remediation_steps": "Store sensitive data in a secure location, such as a key vault or environment variables with appropriate access controls.",
       "issue_description": "The code exposes sensitive data like API keys and database connection details in environment variables, which can be easily compromised by attackers with access to the application's configuration.",
@@ -348,7 +348,7 @@
     },
     {
       "title": "RSA Private Key Vulnerability - Sensitive Information Exposure",
-      "severity": "Critical",
+      "severity": 9.5,
       "file_name": "scratch/harness/artifacts/cert/server.key",
       "remediation_steps": "Review and update the key management process to ensure that private keys are stored securely and only accessible to authorized personnel.",
       "issue_description": "The RSA private key is directly exposed in the code, making it vulnerable to unauthorized access and potential data compromise.",
@@ -358,7 +358,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/fixtures/users/user.json",
       "remediation_steps": "Store credentials securely using hashing or encryption techniques.",
       "issue_description": "The code directly exposes the user name and password in plain text, making them vulnerable to unauthorized access.",
@@ -368,7 +368,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/fixtures/users/new_user.json",
       "remediation_steps": "Store sensitive data in an encrypted manner or remove it from the response",
       "issue_description": "The 'pass' field contains plain-text credentials, which can be easily intercepted and compromised. This poses a significant risk of unauthorized access to user accounts.",
@@ -378,7 +378,7 @@
     },
     {
       "title": "Needle.get Cross-Site Scripting Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/routes/research.js",
       "remediation_steps": "Use needle.get with the 'headers' option to send a custom 'Content-Type' header and prevent cross-site scripting.",
       "issue_description": "The code uses needle.get to fetch data from a remote URL without properly handling the 'Content-Type' header. This makes the code vulnerable to cross-site scripting (XSS) attacks.",
@@ -388,7 +388,7 @@
     },
     {
       "title": "Sensitive Information Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/profile.html",
       "remediation_steps": "Remove or sanitize sensitive information from the HTML template. Consider using URL encoding or other security measures to prevent unauthorized access to sensitive data.",
       "issue_description": "The code snippet exposes sensitive information such as SSN, bank account number, and routing number in the HTML template. This information is vulnerable to unauthorized access through cross-site scripting (XSS) or other client-side attacks.",
@@ -398,7 +398,7 @@
     },
     {
       "title": "Unsanitized Input in require Function",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/support/index.js",
       "remediation_steps": "Use a function that allows for safe loading of external modules from trusted sources.",
       "issue_description": "The `require()` function in Node.js allows for importing external modules, but it does not perform any input validation. This makes it vulnerable to an attacker who could supply a malicious module path, potentially compromising the application.",
@@ -408,7 +408,7 @@
     },
     {
       "title": "Sensitive Information Exposure in Config File",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/plugins/index.js",
       "remediation_steps": "Move sensitive configuration values to a secure environment variable or encrypted storage",
       "issue_description": "The `config/env/all` file exposes the `port` and `hostName` values directly in the code. An attacker with access to the code can easily retrieve these values and potentially compromise the application.",
@@ -418,7 +418,7 @@
     },
     {
       "title": "XSS vulnerability in search form input",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/research.html",
       "remediation_steps": "Use input sanitization techniques to prevent malicious values from being submitted in the search form input field.",
       "issue_description": "An attacker could submit malicious JavaScript code in the 'symbol' input field, which would be reflected back and executed in the browser, potentially leading to cross-site scripting (XSS) attacks.",
@@ -428,7 +428,7 @@
     },
     {
       "title": "Environment Variable Injection Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/docker-compose.yml",
       "remediation_steps": "Use a secret management system to store sensitive values like MONGODB_URI and access them securely in the application",
       "issue_description": "The environment variable MONGODB_URI is directly referenced in the code without any sanitization or validation, making it vulnerable to environment variable injection attacks. An attacker with access to the environment could potentially modify the value of MONGODB_URI to gain unauthorized access to the MongoDB database.",
@@ -438,7 +438,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/error-template.html",
       "remediation_steps": "Remove the interpolation of user-supplied data from the error message to prevent malicious code injection attacks.",
       "issue_description": "The code uses string interpolation with user-supplied data, which makes it vulnerable to SQL injection attacks if malicious data is supplied in the 'error' variable.",
@@ -448,7 +448,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) vulnerability in navigation menu",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/tutorial/layout.html",
       "remediation_steps": "Sanitize user input before displaying it in the navigation menu to prevent malicious code injection.",
       "issue_description": "An attacker could inject malicious JavaScript code into the navigation menu input field, which would be reflected back and executed by other users.",
@@ -458,7 +458,7 @@
     },
     {
       "title": "Cypress - Textarea Name Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/integration/memos_spec.js",
       "remediation_steps": "Change the textarea name attribute to a non-standard or less vulnerable value",
       "issue_description": "An attacker could potentially submit malicious content using the 'memo' textarea, leading to cross-site scripting vulnerabilities.",
@@ -468,7 +468,7 @@
     },
     {
       "title": "Potential Cross-Site Scripting Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/integration/general_spec.js",
       "remediation_steps": "Use escaped HTML to prevent malicious scripts from being injected into the page.",
       "issue_description": "The code does not properly sanitize user input before displaying it in the rendered HTML output, making it vulnerable to Cross-Site Scripting (XSS) attacks.",
@@ -478,7 +478,7 @@
     },
     {
       "title": "Potential Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/assets/vendor/bootstrap/bootstrap-tour.css",
       "remediation_steps": "Implement input validation and sanitization measures to prevent malicious JavaScript code from being injected into the application.",
       "issue_description": "The code does not appear to validate or sanitize user input before displaying it within the context of the `tour-backdrop` element. This could potentially allow an attacker to inject malicious JavaScript code into the application, leading to cross-site scripting (XSS) attacks.",
@@ -488,7 +488,7 @@
     },
     {
       "title": "Server-Side Request Forgery (SSRF) vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/tutorial/ssrf.html",
       "remediation_steps": "Use a whitelist of allowed domains, resources and protocols from where the web server can fetch resources. Validate and reject any input from the user that does not match the positive specification expected.",
       "issue_description": "An SSRF vulnerability exists in the application where user input is concatenated to a URL and the server fetches the response. This allows an attacker to read or update internal resources.",
@@ -498,7 +498,7 @@
     },
     {
       "title": "Payroll Contribution Form Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/contributions.html",
       "remediation_steps": "Remove the commented-out CSRF token input field from the form.",
       "issue_description": "The code includes a commented-out CSRF token input field with the value `{{csrftoken}}`. This field is not defined anywhere in the code, making it possible for an attacker to submit malicious data to the server.",
@@ -508,7 +508,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability in Submit Button",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/memos.html",
       "remediation_steps": "Remove the ability for users to directly input data into the 'memo' field. Consider using a trusted input method like HTML sanitization or client-side validation.",
       "issue_description": "An attacker could inject malicious JavaScript code into the 'memo' field, which would be reflected back and executed in the browser of other users.",
@@ -518,7 +518,7 @@
     },
     {
       "title": "Potential Cross-Site Scripting Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/assets/vendor/theme/sb-admin.css",
       "remediation_steps": "Sanitize user input before displaying it in the application",
       "issue_description": "The code does not appear to validate or sanitize the input from users, making it vulnerable to Cross-Site Scripting (XSS) attacks. Attackers could inject malicious JavaScript code into the input, which would be rendered in the browser and potentially compromise the security of the application.",
@@ -528,7 +528,7 @@
     },
     {
       "title": "Missing Input Validation for First Name Field",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/integration/profile_spec.js",
       "remediation_steps": "Validate user input for the first name field using regular expressions or other validation methods to prevent malicious data from being submitted.",
       "issue_description": "The code snippet provided does not include any validation for the 'firstName' input field, which makes it vulnerable to malicious input. An attacker could potentially submit any value for this field, potentially compromising the application.",
@@ -538,7 +538,7 @@
     },
     {
       "title": "Node.js version vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/Dockerfile",
       "remediation_steps": "Upgrade Node.js to version 14 or higher",
       "issue_description": "Multiple vulnerabilities exist in Node.js versions 12, including buffer overflow and remote code execution vulnerabilities.",
@@ -548,7 +548,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/cypress.json",
       "remediation_steps": "Restrict access to sensitive data by modifying the blacklistHosts configuration to only allow approved IP addresses.",
       "issue_description": "The `blacklistHosts` configuration is set to `*:35729`, which allows access from all hosts on port 35729. This could potentially expose sensitive data to unauthorized users.",
@@ -558,7 +558,7 @@
     },
     {
       "title": "Sensitive Data Exposure",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/signup.html",
       "remediation_steps": "Restrict data access to authorized users and implement secure authentication measures.",
       "issue_description": "The form allows users to submit personally identifiable information, such as email address and password, without appropriate security measures. This could lead to unauthorized access to sensitive data.",
@@ -568,7 +568,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/config/env/development.js",
       "remediation_steps": "Remove or encode the user input before inserting it into the URL or page content.",
       "issue_description": "The `zapApiKey` value is not being properly sanitized, which allows an attacker to inject malicious JavaScript code into the API request. This could lead to Cross-Site Scripting (XSS) vulnerabilities.",
@@ -578,7 +578,7 @@
     },
     {
       "title": "Eval() Function Use - Potential SSJS Injection Attack",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/routes/contributions.js",
       "remediation_steps": "Use a safer alternative to eval() such as parseInt() or other validated input methods.",
       "issue_description": "The code uses eval() to parse inputs from the request body. This is vulnerable to SSJS (Server-Side JavaScript Injection) attacks, where malicious users could inject arbitrary JavaScript code into the preTax, afterTax, and roth fields.",
@@ -588,7 +588,7 @@
     },
     {
       "title": "SQL Injection Vulnerability in MemosDAO.insert() Method",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/data/memos-dao.js",
       "remediation_steps": "Use prepared statements or parameterized queries to prevent SQL injection attacks.",
       "issue_description": "The `insert` method of the `MemosDAO` class uses string concatenation to build the SQL query. This makes it vulnerable to SQL injection attacks if the `memo` parameter contains malicious SQL code.",
@@ -598,7 +598,7 @@
     },
     {
       "title": "Input Validation Vulnerability",
-      "severity": "Medium",
+      "severity": 5.5,
       "file_name": "scratch/harness/test/e2e/integration/allocations_spec.js",
       "remediation_steps": "Validate the input before it is used in the threshold calculation to prevent malicious users from submitting high values.",
       "issue_description": "An input validation vulnerability exists in the 'threshold' input field of the '/allocations/1' page. An attacker could submit a very large threshold value, leading to unexpected behavior or system crashes.",
@@ -608,7 +608,7 @@
     },
     {
       "title": "Vulnerability Detection Report",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/.jshintrc",
       "remediation_steps": "Upgrade Node.js version to mitigate the risk of known vulnerabilities.",
       "issue_description": "The code uses Node.js version 9, which is vulnerable to several known security exploits. Upgrade to a supported and secure version of Node.js to address these vulnerabilities.",
@@ -618,7 +618,7 @@
     },
     {
       "title": "Hardcoded credentials",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/fixtures/users/admin.json",
       "remediation_steps": "Use a secure authentication mechanism such as OAuth or API keys",
       "issue_description": "The code snippet contains hardcoded user credentials, making it vulnerable to unauthorized access if the credentials are compromised",
@@ -628,7 +628,7 @@
     },
     {
       "title": "Cypress test suite vulnerability - Insecure URL parameter handling",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/test/e2e/integration/learn_spec.js",
       "remediation_steps": "Ensure URL parameters are validated and sanitized to prevent unauthorized access or malicious manipulation",
       "issue_description": "The Cypress test suite code uses the URL parameter `url` without proper validation or sanitization, making it vulnerable to URL injection attacks. An malicious actor could exploit this vulnerability to gain unauthorized access to sensitive resources or perform malicious actions.",
@@ -638,7 +638,7 @@
     },
     {
       "title": "Potential Security Vulnerabilities in Express Application",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/server.js",
       "remediation_steps": "Upgrade to Express version 5 or later, and consider enabling HTTPS connection.",
       "issue_description": "The code uses Express version 4 which has known vulnerabilities that can be exploited by attackers. Upgrading to a newer version of Express will fix these vulnerabilities.",
@@ -648,7 +648,7 @@
     },
     {
       "title": "Cross-Site Scripting (XSS) Vulnerability",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/views/benefits.html",
       "remediation_steps": "Remove user-controlled data from the value attribute of the input element",
       "issue_description": "An attacker could input malicious JavaScript code into the 'benefitStartDate' input field, which would be reflected back to the browser and potentially executed by other users.",
@@ -658,7 +658,7 @@
     },
     {
       "title": "Sensitive Data Exposure in Environmental Scripts",
-      "severity": "High",
+      "severity": 7.5,
       "file_name": "scratch/harness/app/routes/benefits.js",
       "remediation_steps": "Move sensitive environmental variables out of client-side code and store them securely in a server-side configuration file.",
       "issue_description": "The code exposes environmental variables using the `environmentalScripts` object, which could potentially be accessed by malicious actors. This could lead to the exposure of sensitive data such as API keys or authentication credentials.",

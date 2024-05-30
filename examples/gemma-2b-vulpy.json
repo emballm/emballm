@@ -8,7 +8,7 @@
   "issues": [
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/user.login.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -18,7 +18,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/skey.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -28,7 +28,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/httpbrute.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -38,7 +38,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/luncheck.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -48,7 +48,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/payloads/keylogger.js",
       "remediation_steps": "",
       "issue_description": "",
@@ -58,7 +58,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/user.chpasswd.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -68,7 +68,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/vulpy-ssl.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -78,7 +78,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/csp.txt",
       "remediation_steps": "",
       "issue_description": "",
@@ -88,7 +88,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/api_post.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -98,7 +98,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/rsa-verify.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -108,7 +108,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/db.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -118,7 +118,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/mod_csp.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -128,7 +128,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/scrypt-verify.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -138,7 +138,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/user.login.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -148,7 +148,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/user.login.mfa.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -158,7 +158,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/cutpasswd.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -168,7 +168,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/payloads/payload.js",
       "remediation_steps": "",
       "issue_description": "",
@@ -178,7 +178,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/README.rst",
       "remediation_steps": "",
       "issue_description": "",
@@ -188,7 +188,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/libapi.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -198,7 +198,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/hmac_generate.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -208,7 +208,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/aes-decrypt.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -218,7 +218,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/csp.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -228,7 +228,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/footer.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -238,7 +238,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/crack-cvv.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -248,7 +248,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/brute.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -258,7 +258,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/welcome.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -268,7 +268,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/mod_posts.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -278,7 +278,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/db_init.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -288,7 +288,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/navbar.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -298,7 +298,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/payloads/keylogger.js",
       "remediation_steps": "",
       "issue_description": "",
@@ -308,7 +308,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/navbar.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -318,7 +318,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/posts.view.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -328,7 +328,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/messages.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -338,7 +338,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/mod_hello.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -348,7 +348,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/posts.view.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -358,7 +358,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/libposts.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -368,7 +368,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/mfa.enable.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -378,7 +378,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/user.login.mfa.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -388,7 +388,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/csp.txt",
       "remediation_steps": "",
       "issue_description": "",
@@ -398,7 +398,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/mfa.disable.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -408,7 +408,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/install-on-kali.sh",
       "remediation_steps": "",
       "issue_description": "",
@@ -418,7 +418,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/aes-encrypt.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -428,7 +428,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/rsa-sign.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -438,7 +438,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/rsa-keygen.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -448,7 +448,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/mod_mfa.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -458,7 +458,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/libmfa.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -468,7 +468,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/scrypt-crack.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -478,7 +478,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/payloads/cookie.js",
       "remediation_steps": "",
       "issue_description": "",
@@ -488,7 +488,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/footer.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -498,7 +498,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/mfa.disable.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -508,7 +508,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/rsa-decrypt.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -518,7 +518,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/mod_welcome1.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -528,7 +528,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/LICENSE",
       "remediation_steps": "",
       "issue_description": "",
@@ -538,7 +538,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/libapi.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -548,7 +548,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/crack-hash.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -558,7 +558,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/db_init.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -568,7 +568,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/head.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -578,7 +578,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/ca-create.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -588,7 +588,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/vulpy-ssl.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -598,7 +598,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/payloads/hello.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -608,7 +608,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/mfa.enable.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -618,7 +618,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/payloads/payload.js",
       "remediation_steps": "",
       "issue_description": "",
@@ -628,7 +628,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/fernet-generate-key.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -638,7 +638,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/user.create.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -648,7 +648,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/csp.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -658,7 +658,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/messages.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -668,7 +668,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/templates/user.create.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -678,7 +678,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/ca-csr-create.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -688,7 +688,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/mod_csp.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -698,7 +698,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/libposts.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -708,7 +708,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/mod_user.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -718,7 +718,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/hashfile.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -728,7 +728,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/vulpy.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -738,7 +738,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/bad-passwords.txt",
       "remediation_steps": "",
       "issue_description": "",
@@ -748,7 +748,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/payloads/cookie.js",
       "remediation_steps": "",
       "issue_description": "",
@@ -758,7 +758,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/payloads/hello.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -768,7 +768,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/welcome.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -778,7 +778,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/rsa-encrypt.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -788,7 +788,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/head.html",
       "remediation_steps": "",
       "issue_description": "",
@@ -798,7 +798,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/bad/libuser.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -808,7 +808,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/scrypt-generate.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -818,7 +818,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/utils/ca-csr-load.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -828,7 +828,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/mod_hello.py",
       "remediation_steps": "",
       "issue_description": "",
@@ -838,7 +838,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/requirements.txt",
       "remediation_steps": "",
       "issue_description": "",
@@ -848,7 +848,7 @@
     },
     {
       "title": "Vulnerability",
-      "severity": "",
+      "severity": 0,
       "file_name": "scratch/harness/good/templates/user.chpasswd.html",
       "remediation_steps": "",
       "issue_description": "",
