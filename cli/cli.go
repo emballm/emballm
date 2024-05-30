@@ -1,12 +1,10 @@
 package cli
 
 import (
+	"emballm/internal/services/ollama"
 	"encoding/json"
 	"fmt"
 	"os"
-	"sync"
-
-	"emballm/internal/services/ollama"
 
 	"gopkg.in/yaml.v3"
 
@@ -70,25 +68,12 @@ func Command(release string) {
 		}
 
 	case services.Supported.Vertex:
-		var scan string
-		var waitGroup sync.WaitGroup
-
-		for _, fileScan := range fileScans {
-			waitGroup.Add(1)
-			go func(fileScan *scans.FileScan) {
-				defer waitGroup.Done()
-				fileResult, err := vertex.Scan(flags.Model, fileScan.Path)
-				if err != nil {
-					Log.Error("scanning: %v", err)
-					return
-				}
-				scan += *fileResult
-				fileScan.Status = scans.Status.Complete
-			}(fileScan)
+		result, err = vertex.Scan(vertex.ScanClient{Model: flags.Model}, fileScans)
+		if err != nil {
+			Log.Error("scanning: %v", err)
+			return
 		}
 
-		waitGroup.Wait()
-		result = []results.Issue{}
 	default:
 		Log.Error("unknown service: %s", flags.Service)
 		return
