@@ -40,7 +40,7 @@ type Issue struct {
 
 type Meta struct {
 	Key        []string `json:"key"`
-	Subproduct string   `json:"subproduct"`
+	SubProduct string   `json:"subproduct"`
 }
 
 type Data struct {

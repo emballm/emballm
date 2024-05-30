@@ -98,7 +98,7 @@ func Command(release string) {
 		results.Data{
 			Meta: results.Meta{
 				Key:        []string{"title"},
-				Subproduct: "emballm",
+				SubProduct: "emballm",
 			},
 			Issues: result,
 		}
